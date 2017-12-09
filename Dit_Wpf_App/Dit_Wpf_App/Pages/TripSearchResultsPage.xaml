@@ -1,0 +1,180 @@
+﻿<local:BasePage x:Class="Dit_Wpf_App.Pages.TripSearchResultsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Dit_Wpf_App.Pages"
+      xmlns:converters="clr-namespace:Dit_Wpf_App.Converters"
+      xmlns:controls="clr-namespace:Dit_Wpf_App.Controls"
+      mc:Ignorable="d" 
+      d:DesignHeight="711" 
+      d:DesignWidth="411"
+      Title="HomePage"
+      UseLayoutRounding="True">
+
+    <!-- Main Grid -->
+    <StackPanel Background="White">
+
+        <!-- Appbar Grid -->
+        <Grid Height="207"
+              VerticalAlignment="Top"
+              Background="{StaticResource MainBrush}">
+
+            <!-- Logo -->
+            <Image Source="../Images/Logo.png"
+                   Margin="167,38,168,0"
+                   Stretch="Uniform"
+                   Width="69" 
+                   Height="42"
+                   SnapsToDevicePixels="True"
+                   VerticalAlignment="Top" 
+                   HorizontalAlignment="Center">
+                <Image.Effect>
+                    <DropShadowEffect RenderingBias="Quality" Color="#FF4B4B4B" Opacity="0.3" BlurRadius="8" Direction="275" />
+                </Image.Effect>
+            </Image>
+
+            <!-- Help Button -->
+            <Button Style="{StaticResource ImageButton}"
+                    VerticalAlignment="Top" 
+                    HorizontalAlignment="Right"
+                    Margin="11">
+                <Image Source="../Images/ic_help_white_48dp.png"
+                      Stretch="UniformToFill" />
+            </Button>
+
+            <!-- Menu Button -->
+            <Button Style="{StaticResource ImageButton}"
+                    VerticalAlignment="Top" 
+                    HorizontalAlignment="Left"
+                    Margin="11"
+                    Click="Back_Click">
+                <Image Source="../Images/ic_arrow_back_white_48dp_2x.png"
+                       Stretch="UniformToFill" />
+            </Button>
+
+            <!-- Container for icons and inputs -->
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0, 100, 30, 0">
+
+                <!-- Container for input icons -->
+                <StackPanel Orientation="Vertical"
+                            Width="30"
+                            Margin="45, 0, 0, 0">
+
+                    <!-- My location icon-->
+                    <Image Source="../Images/ic_my_location_white_48dp_2x.png"
+                           Stretch="UniformToFill"
+                           Width="23" 
+                           Height="23"
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Center"
+                           Margin="2, 16, 2, 5"/>
+
+                    <!-- Dot -->
+                    <Ellipse Fill="#75aff5"
+                             Height="5"
+                             Width="5"
+                             Margin="0, 0, 0, 5"/>
+
+                    <!-- Dot -->
+                    <Ellipse Fill="#75aff5"
+                             Height="5"
+                             Width="5"/>
+
+                    <!-- Destination location icon -->
+                    <Image Source="../Images/ic_place_white_48dp_2x.png"
+                           Stretch="UniformToFill"
+                           Width="23" 
+                           Height="23"
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Center"
+                           Margin="2, 5, 2, 5"/>
+
+                </StackPanel>
+
+                <!-- Container for inputs -->
+                <StackPanel Orientation="Vertical">
+
+                    <Button Style="{StaticResource LocationInputButton}"
+                            Margin="0, 10, 0, 0">
+                        Min Position
+                    </Button>
+
+                    <Button Style="{StaticResource LocationInputButton}"
+                            Margin="0, 15, 0, 0">
+                        Norrahammar Slätten
+                    </Button>
+
+                </StackPanel>
+
+                <!-- Swap Button -->
+                <Button Style="{StaticResource ImageButton}"
+                        Width="49" 
+                        Height="49">
+                    <Image Source="../Images/ic_swap_vert_white_48dp_2x.png"
+                           Stretch="UniformToFill" />
+                </Button>
+
+            </StackPanel>
+
+        </Grid>
+        
+        <!-- Settings area -->
+        <Grid Background="{StaticResource MainDarkBrush}"
+              Height="76" 
+              VerticalAlignment="Top"
+              Margin="0,0,0,0">
+
+            <Button Style="{StaticResource ImageButton}"
+                    Width="250"
+                    Height="250"
+                    Padding="0"
+                    Margin="45, 0, 170, 0">
+
+                <!-- Container for input icons -->
+                <StackPanel Orientation="Horizontal"
+                            VerticalAlignment="Top"
+                            Margin="0, -10, 0, 0">
+
+                    <!-- Settings Button -->
+                    <Image Source="../Images/ic_tune_white_48dp_2x.png"
+                           Stretch="UniformToFill"
+                           Width="25" 
+                           Height="25"
+                           RenderOptions.BitmapScalingMode="Linear"
+                           VerticalAlignment="Top" 
+                           HorizontalAlignment="Left"
+                           Margin="5, 12, 0, 0"/>
+
+                    <!-- Container for settings info -->
+                    <StackPanel Orientation="Vertical"
+                                Margin="5, 0, 0, 0">
+
+                        <Label Content="ALTERNATIV"
+                               FontFamily="Roboto"
+                               FontSize="16"
+                               FontWeight="Bold"
+                               Foreground="White"
+                               VerticalContentAlignment="Center"
+                               Margin="5, 11, 0, 0"/>
+
+                        <Label Content="Ankomst 18:32"
+                               FontFamily="Roboto"
+                               FontSize="15"
+                               Foreground="White"
+                               VerticalContentAlignment="Center"
+                               Margin="5, 0, 0, 0"/>
+
+                    </StackPanel>
+
+                </StackPanel>
+
+            </Button>
+
+        </Grid>
+
+    </StackPanel>
+
+</local:BasePage>

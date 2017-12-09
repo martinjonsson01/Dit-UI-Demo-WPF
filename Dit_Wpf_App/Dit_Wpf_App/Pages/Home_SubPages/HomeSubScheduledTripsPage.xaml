@@ -1,0 +1,725 @@
+﻿<pages:BasePage x:Class="Dit_Wpf_App.Pages.Home_SubPages.HomeSubScheduledTripsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Dit_Wpf_App.Pages.Home_SubPages"
+      xmlns:controls="clr-namespace:Dit_Wpf_App.Controls"
+      xmlns:pages="clr-namespace:Dit_Wpf_App.Pages"
+      xmlns:converters="clr-namespace:Dit_Wpf_App.Converters"
+      mc:Ignorable="d" 
+      d:DesignHeight="611" 
+      d:DesignWidth="411"
+      UseLayoutRounding="True"
+      Title="HomeSub_ScheduledTripsPage">
+
+    <ScrollViewer>
+
+        <!-- Container for all scheduled trips -->
+        <StackPanel Orientation="Vertical">
+
+            <!-- Container for trip -->
+            <Border CornerRadius="2"
+                BorderBrush="{StaticResource BackgroundLightBrush}"
+                Background="{StaticResource BackgroundLightBrush}"
+                BorderThickness="1"
+                Padding="0"
+                HorizontalAlignment="Stretch"
+                Margin="16, 5, 16, 5">
+                <Border.Effect>
+                    <DropShadowEffect RenderingBias="Quality" Color="#FF4B4B4B" Opacity="0.4" BlurRadius="15" Direction="280" ShadowDepth="4" />
+                </Border.Effect>
+
+                <!-- Container for trip days, icons, and buttons -->
+                <StackPanel Orientation="Vertical"
+                        Background="{StaticResource BackgroundLightBrush}"
+                        Margin="8">
+
+                    <!-- Container for top part of card (buttons and icons) -->
+                    <Grid>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Scheduled Icon -->
+                        <Image Grid.Column="0"
+                           IsEnabled="{Binding ElementName=EnableToggleButton, Path=IsChecked}"
+                           Style="{StaticResource DisableImage}"
+                           Source="../../Images/ic_schedule_black_48dp_2x.png"
+                           Stretch="UniformToFill"
+                           Width="30" 
+                           Height="30"
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Left"/>
+
+                        <!-- Trip breadcrumb -->
+                        <StackPanel Grid.Column="1"
+                                IsEnabled="{Binding ElementName=EnableToggleButton, Path=IsChecked}"
+                                Orientation="Horizontal"
+                                Margin="16, 0, 0, 0"
+                                HorizontalAlignment="Left">
+                            <!-- Walk Icon -->
+                            <Image Source="../../Images/ic_directions_walk_black_48dp_2x.png"
+                               Style="{StaticResource DisableImage}"
+                               Stretch="UniformToFill"
+                               Width="25" 
+                               Height="25"
+                               VerticalAlignment="Center" 
+                               HorizontalAlignment="Center"/>
+                            <!-- Arrow Icon -->
+                            <Image Source="../../Images/ic_keyboard_arrow_right_black_48dp_2x.png"
+                               Style="{StaticResource DisableImage}"
+                               Stretch="UniformToFill"
+                               Opacity="0.5"
+                               Width="25" 
+                               Height="25"
+                               VerticalAlignment="Center" 
+                               HorizontalAlignment="Center"/>
+
+                            <!-- Bus Icon and Number -->
+                            <StackPanel Orientation="Horizontal">
+                                <!-- Bus Icon -->
+                                <Image Source="../../Images/ic_directions_bus_black_48dp_2x.png"
+                               Style="{StaticResource DisableImage}"
+                                   Stretch="UniformToFill"
+                                   Width="20" 
+                                   Height="20"
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center"/>
+                                <Border BorderBrush="DimGray"
+                                    BorderThickness="1"
+                                    CornerRadius="0"
+                                    Height="18">
+                                    <Label Content="27"
+                                       Padding="6, 0, 6, 0"
+                                       FontFamily="Roboto"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       VerticalContentAlignment="Center"
+                                       HorizontalContentAlignment="Center"/>
+                                </Border>
+                            </StackPanel>
+
+                        </StackPanel>
+
+                        <!-- Enable/Disable slide toggle button -->
+                        <CheckBox Grid.Column="2"
+                              x:Name="EnableToggleButton"
+                              Style="{StaticResource CheckBoxStyle1}"
+                              HorizontalAlignment="Right" />
+
+                    </Grid>
+
+                    <!-- Container for bottom part of card (days and times) -->
+                    <Grid Margin="0, 8, 0, 0"
+                      IsEnabled="{Binding ElementName=EnableToggleButton, Path=IsChecked}">
+
+                        <!--Column definitions -->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Monday -->
+                        <controls:ScheduledDayControl Grid.Column="0"
+                                                  TimeSpanString="08:26-09:05"
+                                                  IsActive="False"
+                                                  Day="Monday"/>
+
+                        <!-- Tuesday -->
+                        <controls:ScheduledDayControl Grid.Column="1"
+                                                  TimeSpanString="08:26-09:05"
+                                                  IsActive="True"
+                                                  Day="Tuesday"/>
+
+                        <!-- Wednesday -->
+                        <controls:ScheduledDayControl Grid.Column="2"
+                                                  TimeSpanString="08:26-09:05"
+                                                  IsActive="True"
+                                                  Day="Wednesday"/>
+
+                        <!-- Thursday -->
+                        <controls:ScheduledDayControl Grid.Column="3"
+                                                  TimeSpanString="08:26-09:05"
+                                                  IsActive="False"
+                                                  Day="Thursday"/>
+
+                        <!-- Friday -->
+                        <controls:ScheduledDayControl Grid.Column="4"
+                                                  TimeSpanString="08:26-09:05"
+                                                  IsActive="True"
+                                                  Day="Friday"/>
+
+                        <!-- Saturday -->
+                        <controls:ScheduledDayControl Grid.Column="5"
+                                                  TimeSpanString="07:26-09:05"
+                                                  IsActive="False"
+                                                  Day="Saturday"/>
+
+                        <!-- Sunday -->
+                        <controls:ScheduledDayControl Grid.Column="6"
+                                                  TimeSpanString="08:26-10:05"
+                                                  IsActive="False"
+                                                  Day="Sunday"/>
+                    </Grid>
+
+                </StackPanel>
+
+            </Border>
+
+            <!-- Container for trip -->
+            <Border CornerRadius="2"
+                BorderBrush="{StaticResource BackgroundLightBrush}"
+                Background="{StaticResource BackgroundLightBrush}"
+                BorderThickness="1"
+                Padding="0"
+                HorizontalAlignment="Stretch"
+                Margin="16, 5, 16, 5">
+                <Border.Effect>
+                    <DropShadowEffect RenderingBias="Quality" Color="#FF4B4B4B" Opacity="0.4" BlurRadius="15" Direction="280" ShadowDepth="4" />
+                </Border.Effect>
+
+                <!-- Container for trip days, icons, and buttons -->
+                <StackPanel Orientation="Vertical"
+                        Background="{StaticResource BackgroundLightBrush}"
+                        Margin="8">
+
+                    <!-- Container for top part of card (buttons and icons) -->
+                    <Grid>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Scheduled Icon -->
+                        <Image Grid.Column="0"
+                           IsEnabled="{Binding ElementName=EnableToggleButton2, Path=IsChecked}"
+                           Style="{StaticResource DisableImage}"
+                           Source="../../Images/ic_schedule_black_48dp_2x.png"
+                           Stretch="UniformToFill"
+                           Width="30" 
+                           Height="30"
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Left"/>
+
+                        <!-- Trip breadcrumb -->
+                        <StackPanel Grid.Column="1"
+                                IsEnabled="{Binding ElementName=EnableToggleButton2, Path=IsChecked}"
+                                Orientation="Horizontal"
+                                Margin="16, 0, 0, 0"
+                                HorizontalAlignment="Left">
+                            <!-- Walk Icon -->
+                            <Image Source="../../Images/ic_directions_walk_black_48dp_2x.png"
+                               Style="{StaticResource DisableImage}"
+                               Stretch="UniformToFill"
+                               Width="25" 
+                               Height="25"
+                               VerticalAlignment="Center" 
+                               HorizontalAlignment="Center"/>
+
+                            <!-- Arrow Icon -->
+                            <Image Source="../../Images/ic_keyboard_arrow_right_black_48dp_2x.png"
+                               Style="{StaticResource DisableImage}"
+                               Stretch="UniformToFill"
+                               Opacity="0.5"
+                               Width="25" 
+                               Height="25"
+                               VerticalAlignment="Center" 
+                               HorizontalAlignment="Center"/>
+
+                            <!-- Bus Icon and Number -->
+                            <StackPanel Orientation="Horizontal">
+                                <!-- Bus Icon -->
+                                <Image Source="../../Images/ic_directions_bus_black_48dp_2x.png"
+                                   Style="{StaticResource DisableImage}"
+                                   Stretch="UniformToFill"
+                                   Width="20" 
+                                   Height="20"
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center"/>
+                                <Border BorderBrush="DimGray"
+                                    BorderThickness="1"
+                                    CornerRadius="0"
+                                    Height="18">
+                                    <Label Content="28"
+                                       Padding="6, 0, 6, 0"
+                                       FontFamily="Roboto"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       VerticalContentAlignment="Center"
+                                       HorizontalContentAlignment="Center"/>
+                                </Border>
+                            </StackPanel>
+
+                            <!-- Arrow Icon -->
+                            <Image Source="../../Images/ic_keyboard_arrow_right_black_48dp_2x.png"
+                               Style="{StaticResource DisableImage}"
+                               Stretch="UniformToFill"
+                               Opacity="0.5"
+                               Width="25" 
+                               Height="25"
+                               VerticalAlignment="Center" 
+                               HorizontalAlignment="Center"/>
+
+                            <!-- Bus Icon and Number -->
+                            <StackPanel Orientation="Horizontal">
+                                <!-- Bus Icon -->
+                                <Image Source="../../Images/ic_directions_bus_black_48dp_2x.png"
+                                   Style="{StaticResource DisableImage}"
+                                   Stretch="UniformToFill"
+                                   Width="20" 
+                                   Height="20"
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center"/>
+                                <Border BorderBrush="DimGray"
+                                    BorderThickness="1"
+                                    CornerRadius="0"
+                                    Height="18">
+                                    <Label Content="1"
+                                       Padding="6, 0, 6, 0"
+                                       FontFamily="Roboto"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       VerticalContentAlignment="Center"
+                                       HorizontalContentAlignment="Center"/>
+                                </Border>
+                            </StackPanel>
+
+                        </StackPanel>
+
+                        <!-- Enable/Disable slide toggle button -->
+                        <CheckBox Grid.Column="2"
+                              x:Name="EnableToggleButton2"
+                              IsChecked="False"
+                              Style="{StaticResource CheckBoxStyle1}"
+                              HorizontalAlignment="Right" />
+
+                    </Grid>
+
+                    <!-- Container for bottom part of card (days and times) -->
+                    <Grid Margin="0, 8, 0, 0"
+                      IsEnabled="{Binding ElementName=EnableToggleButton2, Path=IsChecked}">
+
+                        <!--Column definitions -->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Monday -->
+                        <controls:ScheduledDayControl Grid.Column="0"
+                                                  TimeSpanString="08:26-09:05"
+                                                  IsActive="True"
+                                                  Day="Monday"/>
+
+                        <!-- Tuesday -->
+                        <controls:ScheduledDayControl Grid.Column="1"
+                                                  TimeSpanString="08:26-09:05"
+                                                  IsActive="False"
+                                                  Day="Tuesday"/>
+
+                        <!-- Wednesday -->
+                        <controls:ScheduledDayControl Grid.Column="2"
+                                                  TimeSpanString="08:26-09:05"
+                                                  IsActive="False"
+                                                  Day="Wednesday"/>
+
+                        <!-- Thursday -->
+                        <controls:ScheduledDayControl Grid.Column="3"
+                                                  TimeSpanString="08:26-09:05"
+                                                  IsActive="True"
+                                                  Day="Thursday"/>
+
+                        <!-- Friday -->
+                        <controls:ScheduledDayControl Grid.Column="4"
+                                                  TimeSpanString="08:26-09:05"
+                                                  IsActive="False"
+                                                  Day="Friday"/>
+
+                        <!-- Saturday -->
+                        <controls:ScheduledDayControl Grid.Column="5"
+                                                  TimeSpanString="07:26-09:05"
+                                                  IsActive="False"
+                                                  Day="Saturday"/>
+
+                        <!-- Sunday -->
+                        <controls:ScheduledDayControl Grid.Column="6"
+                                                  TimeSpanString="08:26-10:05"
+                                                  IsActive="False"
+                                                  Day="Sunday"/>
+                    </Grid>
+
+                </StackPanel>
+
+            </Border>
+
+            <!-- Container for trip -->
+            <Border CornerRadius="2"
+                BorderBrush="{StaticResource BackgroundLightBrush}"
+                Background="{StaticResource BackgroundLightBrush}"
+                BorderThickness="1"
+                Padding="0"
+                HorizontalAlignment="Stretch"
+                Margin="16, 5, 16, 5">
+                <Border.Effect>
+                    <DropShadowEffect RenderingBias="Quality" Color="#FF4B4B4B" Opacity="0.4" BlurRadius="15" Direction="280" ShadowDepth="4" />
+                </Border.Effect>
+
+                <!-- Container for trip days, icons, and buttons -->
+                <StackPanel Orientation="Vertical"
+                        Background="{StaticResource BackgroundLightBrush}"
+                        Margin="8">
+
+                    <!-- Container for top part of card (buttons and icons) -->
+                    <Grid>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Scheduled Icon -->
+                        <Image Grid.Column="0"
+                           IsEnabled="{Binding ElementName=EnableToggleButton3, Path=IsChecked}"
+                           Style="{StaticResource DisableImage}"
+                           Source="../../Images/ic_schedule_black_48dp_2x.png"
+                           Stretch="UniformToFill"
+                           Width="30" 
+                           Height="30"
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Left"/>
+
+                        <!-- Trip breadcrumb -->
+                        <StackPanel Grid.Column="1"
+                                IsEnabled="{Binding ElementName=EnableToggleButton3, Path=IsChecked}"
+                                Orientation="Horizontal"
+                                Margin="16, 0, 0, 0"
+                                HorizontalAlignment="Left">
+                            <!-- Walk Icon -->
+                            <Image Source="../../Images/ic_directions_walk_black_48dp_2x.png"
+                               Style="{StaticResource DisableImage}"
+                               Stretch="UniformToFill"
+                               Width="25" 
+                               Height="25"
+                               VerticalAlignment="Center" 
+                               HorizontalAlignment="Center"/>
+
+                            <!-- Arrow Icon -->
+                            <Image Source="../../Images/ic_keyboard_arrow_right_black_48dp_2x.png"
+                               Style="{StaticResource DisableImage}"
+                               Stretch="UniformToFill"
+                               Opacity="0.5"
+                               Width="25" 
+                               Height="25"
+                               VerticalAlignment="Center" 
+                               HorizontalAlignment="Center"/>
+
+                            <!-- Bus Icon and Number -->
+                            <StackPanel Orientation="Horizontal">
+                                <!-- Bus Icon -->
+                                <Image Source="../../Images/ic_directions_bus_black_48dp_2x.png"
+                                   Style="{StaticResource DisableImage}"
+                                   Stretch="UniformToFill"
+                                   Width="20" 
+                                   Height="20"
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center"/>
+                                <Border BorderBrush="DimGray"
+                                    BorderThickness="1"
+                                    CornerRadius="0"
+                                    Height="18">
+                                    <Label Content="28"
+                                       Padding="6, 0, 6, 0"
+                                       FontFamily="Roboto"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       VerticalContentAlignment="Center"
+                                       HorizontalContentAlignment="Center"/>
+                                </Border>
+                            </StackPanel>
+
+                            <!-- Arrow Icon -->
+                            <Image Source="../../Images/ic_keyboard_arrow_right_black_48dp_2x.png"
+                               Style="{StaticResource DisableImage}"
+                               Stretch="UniformToFill"
+                               Opacity="0.5"
+                               Width="25" 
+                               Height="25"
+                               VerticalAlignment="Center" 
+                               HorizontalAlignment="Center"/>
+
+                            <!-- Bus Icon and Number -->
+                            <StackPanel Orientation="Horizontal">
+                                <!-- Bus Icon -->
+                                <Image Source="../../Images/ic_directions_bus_black_48dp_2x.png"
+                                   Style="{StaticResource DisableImage}"
+                                   Stretch="UniformToFill"
+                                   Width="20" 
+                                   Height="20"
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center"/>
+                                <Border BorderBrush="DimGray"
+                                    BorderThickness="1"
+                                    CornerRadius="0"
+                                    Height="18">
+                                    <Label Content="1"
+                                       Padding="6, 0, 6, 0"
+                                       FontFamily="Roboto"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       VerticalContentAlignment="Center"
+                                       HorizontalContentAlignment="Center"/>
+                                </Border>
+                            </StackPanel>
+
+                        </StackPanel>
+
+                        <!-- Enable/Disable slide toggle button -->
+                        <CheckBox Grid.Column="2"
+                              x:Name="EnableToggleButton3"
+                              Style="{StaticResource CheckBoxStyle1}"
+                              HorizontalAlignment="Right" />
+
+                    </Grid>
+
+                    <!-- Container for bottom part of card (days and times) -->
+                    <Grid Margin="0, 8, 0, 0"
+                      IsEnabled="{Binding ElementName=EnableToggleButton3, Path=IsChecked}">
+
+                        <!--Column definitions -->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Monday -->
+                        <controls:ScheduledDayControl Grid.Column="0"
+                                                  TimeSpanString="08:26-09:05"
+                                                  IsActive="False"
+                                                  Day="Monday"/>
+
+                        <!-- Tuesday -->
+                        <controls:ScheduledDayControl Grid.Column="1"
+                                                  TimeSpanString="08:26-09:05"
+                                                  IsActive="False"
+                                                  Day="Tuesday"/>
+
+                        <!-- Wednesday -->
+                        <controls:ScheduledDayControl Grid.Column="2"
+                                                  TimeSpanString="08:26-09:05"
+                                                  IsActive="False"
+                                                  Day="Wednesday"/>
+
+                        <!-- Thursday -->
+                        <controls:ScheduledDayControl Grid.Column="3"
+                                                  TimeSpanString="08:26-09:05"
+                                                  IsActive="False"
+                                                  Day="Thursday"/>
+
+                        <!-- Friday -->
+                        <controls:ScheduledDayControl Grid.Column="4"
+                                                  TimeSpanString="08:26-09:05"
+                                                  IsActive="False"
+                                                  Day="Friday"/>
+
+                        <!-- Saturday -->
+                        <controls:ScheduledDayControl Grid.Column="5"
+                                                  TimeSpanString="07:26-09:05"
+                                                  IsActive="True"
+                                                  Day="Saturday"/>
+
+                        <!-- Sunday -->
+                        <controls:ScheduledDayControl Grid.Column="6"
+                                                  TimeSpanString="08:26-10:05"
+                                                  IsActive="True"
+                                                  Day="Sunday"/>
+                    </Grid>
+
+                </StackPanel>
+
+            </Border>
+
+            <!-- Container for trip -->
+            <Border CornerRadius="2"
+                BorderBrush="{StaticResource BackgroundLightBrush}"
+                Background="{StaticResource BackgroundLightBrush}"
+                BorderThickness="1"
+                Padding="0"
+                HorizontalAlignment="Stretch"
+                Margin="16, 5, 16, 5">
+                <Border.Effect>
+                    <DropShadowEffect RenderingBias="Quality" Color="#FF4B4B4B" Opacity="0.4" BlurRadius="15" Direction="280" ShadowDepth="4" />
+                </Border.Effect>
+
+                <!-- Container for trip days, icons, and buttons -->
+                <StackPanel Orientation="Vertical"
+                        Background="{StaticResource BackgroundLightBrush}"
+                        Margin="8">
+
+                    <!-- Container for top part of card (buttons and icons) -->
+                    <Grid>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Scheduled Icon -->
+                        <Image Grid.Column="0"
+                           IsEnabled="{Binding ElementName=EnableToggleButton4, Path=IsChecked}"
+                           Style="{StaticResource DisableImage}"
+                           Source="../../Images/ic_schedule_black_48dp_2x.png"
+                           Stretch="UniformToFill"
+                           Width="30" 
+                           Height="30"
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Left"/>
+
+                        <!-- Trip breadcrumb -->
+                        <StackPanel Grid.Column="1"
+                                IsEnabled="{Binding ElementName=EnableToggleButton4, Path=IsChecked}"
+                                Orientation="Horizontal"
+                                Margin="16, 0, 0, 0"
+                                HorizontalAlignment="Left">
+                            <!-- Walk Icon -->
+                            <Image Source="../../Images/ic_directions_walk_black_48dp_2x.png"
+                               Style="{StaticResource DisableImage}"
+                               Stretch="UniformToFill"
+                               Width="25" 
+                               Height="25"
+                               VerticalAlignment="Center" 
+                               HorizontalAlignment="Center"/>
+                            <!-- Arrow Icon -->
+                            <Image Source="../../Images/ic_keyboard_arrow_right_black_48dp_2x.png"
+                               Style="{StaticResource DisableImage}"
+                               Stretch="UniformToFill"
+                               Opacity="0.5"
+                               Width="25" 
+                               Height="25"
+                               VerticalAlignment="Center" 
+                               HorizontalAlignment="Center"/>
+
+                            <!-- Bus Icon and Number -->
+                            <StackPanel Orientation="Horizontal">
+                                <!-- Bus Icon -->
+                                <Image Source="../../Images/ic_directions_bus_black_48dp_2x.png"
+                                   Style="{StaticResource DisableImage}"
+                                   Stretch="UniformToFill"
+                                   Width="20" 
+                                   Height="20"
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center"/>
+                                <Border BorderBrush="DimGray"
+                                    BorderThickness="1"
+                                    CornerRadius="0"
+                                    Height="18">
+                                    <Label Content="27"
+                                       Padding="6, 0, 6, 0"
+                                       FontFamily="Roboto"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       VerticalContentAlignment="Center"
+                                       HorizontalContentAlignment="Center"/>
+                                </Border>
+                            </StackPanel>
+
+                        </StackPanel>
+
+                        <!-- Enable/Disable slide toggle button -->
+                        <CheckBox Grid.Column="2"
+                              x:Name="EnableToggleButton4"
+                              Style="{StaticResource CheckBoxStyle1}"
+                              HorizontalAlignment="Right" />
+
+                    </Grid>
+
+                    <!-- Container for bottom part of card (days and times) -->
+                    <Grid Margin="0, 8, 0, 0"
+                      IsEnabled="{Binding ElementName=EnableToggleButton4, Path=IsChecked}">
+
+                        <!--Column definitions -->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Monday -->
+                        <controls:ScheduledDayControl Grid.Column="0"
+                                                  TimeSpanString="08:26-09:05"
+                                                  IsActive="True"
+                                                  Day="Monday"/>
+
+                        <!-- Tuesday -->
+                        <controls:ScheduledDayControl Grid.Column="1"
+                                                  TimeSpanString="08:26-09:05"
+                                                  IsActive="False"
+                                                  Day="Tuesday"/>
+
+                        <!-- Wednesday -->
+                        <controls:ScheduledDayControl Grid.Column="2"
+                                                  TimeSpanString="08:26-09:05"
+                                                  IsActive="False"
+                                                  Day="Wednesday"/>
+
+                        <!-- Thursday -->
+                        <controls:ScheduledDayControl Grid.Column="3"
+                                                  TimeSpanString="08:26-09:05"
+                                                  IsActive="True"
+                                                  Day="Thursday"/>
+
+                        <!-- Friday -->
+                        <controls:ScheduledDayControl Grid.Column="4"
+                                                  TimeSpanString="08:26-09:05"
+                                                  IsActive="False"
+                                                  Day="Friday"/>
+
+                        <!-- Saturday -->
+                        <controls:ScheduledDayControl Grid.Column="5"
+                                                  TimeSpanString="07:26-09:05"
+                                                  IsActive="False"
+                                                  Day="Saturday"/>
+
+                        <!-- Sunday -->
+                        <controls:ScheduledDayControl Grid.Column="6"
+                                                  TimeSpanString="08:26-10:05"
+                                                  IsActive="False"
+                                                  Day="Sunday"/>
+                    </Grid>
+
+                </StackPanel>
+
+            </Border>
+
+        </StackPanel>
+
+    </ScrollViewer>
+    
+</pages:BasePage>
+

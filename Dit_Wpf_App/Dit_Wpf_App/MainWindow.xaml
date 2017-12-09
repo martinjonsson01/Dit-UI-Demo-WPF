@@ -1,0 +1,26 @@
+﻿<Window x:Class="Dit_Wpf_App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Dit_Wpf_App"
+        xmlns:controls="clr-namespace:Dit_Wpf_App.Controls"
+        mc:Ignorable="d"
+        Title="Dit" 
+        Height="731"
+        MinHeight="600"
+        MaxHeight="1462"
+        Width="411"
+        MinWidth="411"
+        MaxWidth="822"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Normal"
+        UseLayoutRounding="True">
+
+    <Grid>
+        
+        <controls:PageHost x:Name="MainPageHost" />
+        
+    </Grid>
+    
+</Window>
