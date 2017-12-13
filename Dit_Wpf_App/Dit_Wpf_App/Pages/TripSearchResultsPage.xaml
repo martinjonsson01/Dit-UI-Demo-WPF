@@ -97,15 +97,19 @@
                 <!-- Container for inputs -->
                 <StackPanel Orientation="Vertical">
 
-                    <Button Style="{StaticResource LocationInputButton}"
-                            Margin="0, 10, 0, 0">
-                        Min Position
-                    </Button>
+                    <Label Style="{StaticResource LocationInputLabel}"
+                           RenderTransformOrigin="0.5, 0.5"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin="0, 10, 0, 0"
+                           Content="Min Position"/>
 
-                    <Button Style="{StaticResource LocationInputButton}"
-                            Margin="0, 15, 0, 0">
-                        Norrahammar Slätten
-                    </Button>
+                    <Label Style="{StaticResource LocationInputLabel}"
+                           RenderTransformOrigin="0.5, 0.5"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin="0, 15, 0, 0"
+                           Content="Norrahammar Slätten"/>
 
                 </StackPanel>
 
@@ -175,6 +179,191 @@
 
         </Grid>
 
+        <ScrollViewer>
+
+            <!-- Container for trip search results. -->
+            <StackPanel Orientation="Vertical">
+
+                <StackPanel Orientation="Horizontal"
+                        Height="150"
+                        Margin="16, 10, 16, 4"
+                        Background="{StaticResource BackgroundLightBrush}">
+                    <StackPanel.Effect>
+                        <DropShadowEffect RenderingBias="Quality" Color="#FF4B4B4B" Opacity="0.3" BlurRadius="8" Direction="275" />
+                    </StackPanel.Effect>
+
+                    <!-- Settings Button -->
+                    <Image Source="../Images/ic_directions_bus_black_48dp_2x.png"
+                       Stretch="UniformToFill"
+                       Opacity="0.7"
+                       Width="30"
+                       Height="30"
+                       RenderOptions.BitmapScalingMode="Linear"
+                       VerticalAlignment="Top" 
+                       HorizontalAlignment="Left"
+                       Margin="8, 8, 0, 0"/>
+
+                    <!-- Center content -->
+                    <StackPanel Orientation="Vertical">
+
+                        <!-- Timespan label -->
+                        <Label Content="15:50-16:15"
+                           FontFamily="Roboto"
+                           FontSize="18"
+                           Margin="16, 8, 0, 0"/>
+
+                        <!-- Trip breadcrumb -->
+                        <StackPanel Grid.Column="1"
+                                IsEnabled="{Binding ElementName=EnableToggleButton, Path=IsChecked}"
+                                Orientation="Horizontal"
+                                Margin="16, 0, 0, 0"
+                                HorizontalAlignment="Left">
+                            <!-- Walk Icon -->
+                            <Image Source="../Images/ic_directions_walk_black_48dp_2x.png"
+                               Style="{StaticResource DisableImage}"
+                               Stretch="UniformToFill"
+                               Width="25" 
+                               Height="25"
+                               VerticalAlignment="Center" 
+                               HorizontalAlignment="Center"/>
+                            <!-- Arrow Icon -->
+                            <Image Source="../Images/ic_keyboard_arrow_right_black_48dp_2x.png"
+                               Style="{StaticResource DisableImage}"
+                               Stretch="UniformToFill"
+                               Opacity="0.5"
+                               Width="25" 
+                               Height="25"
+                               VerticalAlignment="Center" 
+                               HorizontalAlignment="Center"/>
+
+                            <!-- Bus Icon and Number -->
+                            <StackPanel Orientation="Horizontal">
+                                <!-- Bus Icon -->
+                                <Image Source="../Images/ic_directions_bus_black_48dp_2x.png"
+                                       Style="{StaticResource DisableImage}"
+                                       Stretch="UniformToFill"
+                                       Width="20" 
+                                       Height="20"
+                                       VerticalAlignment="Center" 
+                                       HorizontalAlignment="Center"/>
+                                <Border BorderBrush="DimGray"
+                                    BorderThickness="1"
+                                    CornerRadius="0"
+                                    Height="18">
+                                    <Label Content="27"
+                                       Padding="6, 0, 6, 0"
+                                       FontFamily="Roboto"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       VerticalContentAlignment="Center"
+                                       HorizontalContentAlignment="Center"/>
+                                </Border>
+                            </StackPanel>
+
+                        </StackPanel>
+
+                        <!-- Departure text -->
+                        <Label Content="15:50 Från Jönköping Juneporten"
+                               FontFamily="Roboto"
+                               FontSize="14"
+                               Foreground="Gray"
+                               Margin="16, 8, 0, 0"/>
+
+                        <StackPanel Orientation="Horizontal">
+
+                            <!-- Walk Icon -->
+                            <Image Source="../Images/ic_directions_walk_black_48dp_2x.png"
+                               Stretch="UniformToFill"
+                               Opacity="0.5"
+                               Width="30"
+                               Height="30"
+                               RenderOptions.BitmapScalingMode="Linear"
+                               VerticalAlignment="Top" 
+                               HorizontalAlignment="Left"
+                               Margin="16, 5, 0, 0"/>
+
+                            <!-- Walk text -->
+                            <Label Content="15:50 Från Jönköping Juneporten"
+                               FontFamily="Roboto"
+                               FontSize="14"
+                               Foreground="Gray"
+                               Margin="16, 8, 0, 0"/>
+
+                        </StackPanel>
+
+                    </StackPanel>
+
+                    <!-- Right content -->
+                    <Grid>
+
+                    </Grid>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                        Height="90"
+                        Margin="32, 4, 32, 4"
+                        Background="{StaticResource BackgroundLightBrush}">
+                    <StackPanel.Effect>
+                        <DropShadowEffect RenderingBias="Quality" Color="#FF4B4B4B" Opacity="0.3" BlurRadius="8" Direction="275" />
+                    </StackPanel.Effect>
+
+
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                        Height="90"
+                        Margin="32, 4, 32, 4"
+                        Background="{StaticResource BackgroundLightBrush}">
+                    <StackPanel.Effect>
+                        <DropShadowEffect RenderingBias="Quality" Color="#FF4B4B4B" Opacity="0.3" BlurRadius="8" Direction="275" />
+                    </StackPanel.Effect>
+
+
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                        Height="90"
+                        Margin="32, 4, 32, 4"
+                        Background="{StaticResource BackgroundLightBrush}">
+                    <StackPanel.Effect>
+                        <DropShadowEffect RenderingBias="Quality" Color="#FF4B4B4B" Opacity="0.3" BlurRadius="8" Direction="275" />
+                    </StackPanel.Effect>
+
+
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                        Height="90"
+                        Margin="32, 4, 32, 4"
+                        Background="{StaticResource BackgroundLightBrush}">
+                    <StackPanel.Effect>
+                        <DropShadowEffect RenderingBias="Quality" Color="#FF4B4B4B" Opacity="0.3" BlurRadius="8" Direction="275" />
+                    </StackPanel.Effect>
+
+
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                        Height="90"
+                        Margin="32, 4, 32, 4"
+                        Background="{StaticResource BackgroundLightBrush}">
+                    <StackPanel.Effect>
+                        <DropShadowEffect RenderingBias="Quality" Color="#FF4B4B4B" Opacity="0.3" BlurRadius="8" Direction="275" />
+                    </StackPanel.Effect>
+
+
+
+                </StackPanel>
+
+            </StackPanel>
+
+        </ScrollViewer>
+        
     </StackPanel>
 
 </local:BasePage>
