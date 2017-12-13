@@ -13,7 +13,7 @@
       UseLayoutRounding="True">
 
     <!-- Main Grid -->
-    <StackPanel Background="White">
+    <Grid Background="White">
 
         <!-- Appbar Grid -->
         <Grid Height="207"
@@ -124,12 +124,12 @@
             </StackPanel>
 
         </Grid>
-        
+
         <!-- Settings area -->
         <Grid Background="{StaticResource MainDarkBrush}"
               Height="76" 
               VerticalAlignment="Top"
-              Margin="0,0,0,0">
+              Margin="0,207,0,0">
 
             <Button Style="{StaticResource ImageButton}"
                     Width="250"
@@ -179,191 +179,764 @@
 
         </Grid>
 
-        <ScrollViewer>
+        <ScrollViewer Margin="0, 283, 0, 0">
 
             <!-- Container for trip search results. -->
             <StackPanel Orientation="Vertical">
 
-                <StackPanel Orientation="Horizontal"
-                        Height="150"
+                <!-- Trip Result Button -->
+                <Button Style="{StaticResource CardButton}"
                         Margin="16, 10, 16, 4"
-                        Background="{StaticResource BackgroundLightBrush}">
-                    <StackPanel.Effect>
-                        <DropShadowEffect RenderingBias="Quality" Color="#FF4B4B4B" Opacity="0.3" BlurRadius="8" Direction="275" />
-                    </StackPanel.Effect>
+                        Height="auto"
+                        Width="auto">
 
-                    <!-- Settings Button -->
-                    <Image Source="../Images/ic_directions_bus_black_48dp_2x.png"
-                       Stretch="UniformToFill"
-                       Opacity="0.7"
-                       Width="30"
-                       Height="30"
-                       RenderOptions.BitmapScalingMode="Linear"
-                       VerticalAlignment="Top" 
-                       HorizontalAlignment="Left"
-                       Margin="8, 8, 0, 0"/>
+                    <!-- Trip Result Container -->
+                    <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Stretch"
+                            Background="{StaticResource BackgroundLightBrush}">
 
-                    <!-- Center content -->
-                    <StackPanel Orientation="Vertical">
+                        <!-- Bus Icon -->
+                        <Image Source="../Images/ic_directions_bus_black_48dp_2x.png"
+                           Stretch="UniformToFill"
+                           Opacity="0.7"
+                           Width="30"
+                           Height="30"
+                           VerticalAlignment="Top" 
+                           HorizontalAlignment="Left"
+                           Margin="8, 8, 0, 0"/>
 
-                        <!-- Timespan label -->
-                        <Label Content="15:50-16:15"
-                           FontFamily="Roboto"
-                           FontSize="18"
-                           Margin="16, 8, 0, 0"/>
+                        <!-- Center content -->
+                        <StackPanel Orientation="Vertical"
+                                HorizontalAlignment="Center">
 
-                        <!-- Trip breadcrumb -->
-                        <StackPanel Grid.Column="1"
-                                IsEnabled="{Binding ElementName=EnableToggleButton, Path=IsChecked}"
-                                Orientation="Horizontal"
-                                Margin="16, 0, 0, 0"
-                                HorizontalAlignment="Left">
-                            <!-- Walk Icon -->
-                            <Image Source="../Images/ic_directions_walk_black_48dp_2x.png"
-                               Style="{StaticResource DisableImage}"
-                               Stretch="UniformToFill"
-                               Width="25" 
-                               Height="25"
-                               VerticalAlignment="Center" 
-                               HorizontalAlignment="Center"/>
-                            <!-- Arrow Icon -->
-                            <Image Source="../Images/ic_keyboard_arrow_right_black_48dp_2x.png"
-                               Style="{StaticResource DisableImage}"
-                               Stretch="UniformToFill"
-                               Opacity="0.5"
-                               Width="25" 
-                               Height="25"
-                               VerticalAlignment="Center" 
-                               HorizontalAlignment="Center"/>
+                            <!-- Timespan label -->
+                            <Label Content="15:50-16:15"
+                               FontFamily="Roboto"
+                               FontSize="20"
+                               Foreground="{StaticResource GrayBrush}"
+                               Margin="16, 8, 0, 0"/>
 
-                            <!-- Bus Icon and Number -->
-                            <StackPanel Orientation="Horizontal">
-                                <!-- Bus Icon -->
-                                <Image Source="../Images/ic_directions_bus_black_48dp_2x.png"
+                            <!-- Trip breadcrumb -->
+                            <StackPanel Orientation="Horizontal"
+                                    Margin="16, 0, 0, 0"
+                                    HorizontalAlignment="Left">
+                                <!-- Walk Icon -->
+                                <Image Source="../Images/ic_directions_walk_black_48dp_2x.png"
+                                   Style="{StaticResource DisableImage}"
+                                   Stretch="UniformToFill"
+                                   Width="25" 
+                                   Height="25"
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center"/>
+                                <!-- Arrow Icon -->
+                                <Image Source="../Images/ic_keyboard_arrow_right_black_48dp_2x.png"
+                                   Style="{StaticResource DisableImage}"
+                                   Stretch="UniformToFill"
+                                   Opacity="0.5"
+                                   Width="25" 
+                                   Height="25"
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center"/>
+
+                                <!-- Bus Icon and Number -->
+                                <StackPanel Orientation="Horizontal">
+                                    <!-- Bus Icon -->
+                                    <Image Source="../Images/ic_directions_bus_black_48dp_2x.png"
                                        Style="{StaticResource DisableImage}"
                                        Stretch="UniformToFill"
                                        Width="20" 
                                        Height="20"
                                        VerticalAlignment="Center" 
                                        HorizontalAlignment="Center"/>
-                                <Border BorderBrush="DimGray"
-                                    BorderThickness="1"
-                                    CornerRadius="0"
-                                    Height="18">
-                                    <Label Content="27"
-                                       Padding="6, 0, 6, 0"
-                                       FontFamily="Roboto"
-                                       VerticalAlignment="Center"
-                                       HorizontalAlignment="Center"
-                                       VerticalContentAlignment="Center"
-                                       HorizontalContentAlignment="Center"/>
-                                </Border>
+                                    <Border BorderBrush="DimGray"
+                                        BorderThickness="1"
+                                        CornerRadius="0"
+                                        Height="18">
+                                        <Label Content="27"
+                                           Padding="6, 0, 6, 0"
+                                           FontFamily="Roboto"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           VerticalContentAlignment="Center"
+                                           HorizontalContentAlignment="Center"/>
+                                    </Border>
+                                </StackPanel>
+
+                            </StackPanel>
+
+                            <!-- Departure text -->
+                            <Label Content="15:50 Från Jönköping Juneporten"
+                               FontFamily="Roboto"
+                               FontSize="15"
+                               Foreground="{StaticResource GrayBrush}"
+                               Margin="16, 0, 0, 0"/>
+
+                            <StackPanel Orientation="Horizontal">
+
+                                <!-- Walk Icon -->
+                                <Image Source="../Images/ic_directions_walk_black_48dp_2x.png"
+                                   Stretch="UniformToFill"
+                                   Opacity="0.7"
+                                   Width="23"
+                                   Height="23"
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center"
+                                   Margin="16, 0, 0, 0"/>
+
+                                <!-- Walk text -->
+                                <Label Content="6 min"
+                                   FontFamily="Roboto"
+                                   FontSize="14"
+                                   Foreground="{StaticResource GrayBrush}"
+                                   Padding="3"
+                                   Margin="4, 0, 0, 0"/>
+
+                            </StackPanel>
+
+                            <!-- INFORMATION "button" -->
+                            <Label Content="INFORMATION"
+                               Foreground="{StaticResource LinkBrush}"
+                               FontWeight="Bold"
+                               FontSize="16"
+                               HorizontalAlignment="Left"
+                               Margin="16, 0, 8, 0"/>
+
+                        </StackPanel>
+
+                        <!-- Right content -->
+                        <Grid HorizontalAlignment="Right">
+
+                            <!-- Trip Duration -->
+                            <Label Content="25 min"
+                               FontFamily="Roboto"
+                               FontSize="20"
+                               Foreground="{StaticResource GrayBrush}"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Right"
+                               Margin="0, 8, 8, 0"/>
+
+                            <!-- Schedule Button -->
+                            <Button Style="{StaticResource ImageButton}"
+                                Width="40" 
+                                Height="40"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Right"
+                                Margin="0, 0, 8, 8">
+                                <Image Source="../Images/ic_schedule_black_48dp_2x.png"
+                                   Stretch="UniformToFill" 
+                                   Opacity="0.8"/>
+                            </Button>
+
+                        </Grid>
+
+                    </StackPanel>
+
+                </Button>
+
+                <!-- Trip Result Button -->
+                <Button Style="{StaticResource CardButton}"
+                        Margin="32, 4, 32, 4"
+                        Height="auto"
+                        Width="auto">
+
+                    <!-- Trip Result Container -->
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Stretch"
+                                Background="{StaticResource BackgroundLightBrush}">
+
+                        <!-- Bus Icon -->
+                        <Image Source="../Images/ic_directions_bus_black_48dp_2x.png"
+                               Stretch="UniformToFill"
+                               Opacity="0.7"
+                               Width="30"
+                               Height="30"
+                               VerticalAlignment="Top" 
+                               HorizontalAlignment="Left"
+                               Margin="8, 8, 0, 0"/>
+
+                        <!-- Center content -->
+                        <StackPanel Orientation="Vertical"
+                                HorizontalAlignment="Center">
+
+                            <!-- Timespan label -->
+                            <Label Content="15:50-16:15"
+                               FontFamily="Roboto"
+                               FontSize="20"
+                               Foreground="{StaticResource GrayBrush}"
+                               Margin="16, 8, 90, 0"/>
+
+                            <!-- Trip breadcrumb -->
+                            <StackPanel Orientation="Horizontal"
+                                    Margin="16, 0, 0, 8"
+                                    HorizontalAlignment="Left">
+                                <!-- Walk Icon -->
+                                <Image Source="../Images/ic_directions_walk_black_48dp_2x.png"
+                                   Style="{StaticResource DisableImage}"
+                                   Stretch="UniformToFill"
+                                   Width="25" 
+                                   Height="25"
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center"/>
+                                <!-- Arrow Icon -->
+                                <Image Source="../Images/ic_keyboard_arrow_right_black_48dp_2x.png"
+                                   Style="{StaticResource DisableImage}"
+                                   Stretch="UniformToFill"
+                                   Opacity="0.5"
+                                   Width="25" 
+                                   Height="25"
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center"/>
+
+                                <!-- Bus Icon and Number -->
+                                <StackPanel Orientation="Horizontal">
+                                    <!-- Bus Icon -->
+                                    <Image Source="../Images/ic_directions_bus_black_48dp_2x.png"
+                                       Style="{StaticResource DisableImage}"
+                                       Stretch="UniformToFill"
+                                       Width="20" 
+                                       Height="20"
+                                       VerticalAlignment="Center" 
+                                       HorizontalAlignment="Center"/>
+                                    <Border BorderBrush="DimGray"
+                                        BorderThickness="1"
+                                        CornerRadius="0"
+                                        Height="18">
+                                        <Label Content="27"
+                                           Padding="6, 0, 6, 0"
+                                           FontFamily="Roboto"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           VerticalContentAlignment="Center"
+                                           HorizontalContentAlignment="Center"/>
+                                    </Border>
+                                </StackPanel>
+
                             </StackPanel>
 
                         </StackPanel>
 
-                        <!-- Departure text -->
-                        <Label Content="15:50 Från Jönköping Juneporten"
+                        <!-- Right content -->
+                        <Grid HorizontalAlignment="Right">
+
+                            <!-- Trip Duration -->
+                            <Label Content="25 min"
                                FontFamily="Roboto"
-                               FontSize="14"
-                               Foreground="Gray"
-                               Margin="16, 8, 0, 0"/>
+                               FontSize="20"
+                               Foreground="{StaticResource GrayBrush}"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Right"
+                               Margin="0, 8, 8, 0"/>
 
-                        <StackPanel Orientation="Horizontal">
-
-                            <!-- Walk Icon -->
-                            <Image Source="../Images/ic_directions_walk_black_48dp_2x.png"
-                               Stretch="UniformToFill"
-                               Opacity="0.5"
-                               Width="30"
-                               Height="30"
-                               RenderOptions.BitmapScalingMode="Linear"
-                               VerticalAlignment="Top" 
-                               HorizontalAlignment="Left"
-                               Margin="16, 5, 0, 0"/>
-
-                            <!-- Walk text -->
-                            <Label Content="15:50 Från Jönköping Juneporten"
-                               FontFamily="Roboto"
-                               FontSize="14"
-                               Foreground="Gray"
-                               Margin="16, 8, 0, 0"/>
-
-                        </StackPanel>
+                        </Grid>
 
                     </StackPanel>
 
-                    <!-- Right content -->
-                    <Grid>
+                </Button>
 
-                    </Grid>
-
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal"
-                        Height="90"
+                <!-- Trip Result Button -->
+                <Button Style="{StaticResource CardButton}"
                         Margin="32, 4, 32, 4"
-                        Background="{StaticResource BackgroundLightBrush}">
-                    <StackPanel.Effect>
-                        <DropShadowEffect RenderingBias="Quality" Color="#FF4B4B4B" Opacity="0.3" BlurRadius="8" Direction="275" />
-                    </StackPanel.Effect>
+                        Height="auto"
+                        Width="auto">
 
+                    <!-- Trip Result Container -->
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Stretch"
+                                Background="{StaticResource BackgroundLightBrush}">
 
+                        <!-- Bus Icon -->
+                        <Image Source="../Images/ic_directions_bus_black_48dp_2x.png"
+                               Stretch="UniformToFill"
+                               Opacity="0.7"
+                               Width="30"
+                               Height="30"
+                               VerticalAlignment="Top" 
+                               HorizontalAlignment="Left"
+                               Margin="8, 8, 0, 0"/>
 
-                </StackPanel>
+                        <!-- Center content -->
+                        <StackPanel Orientation="Vertical"
+                                HorizontalAlignment="Center">
 
-                <StackPanel Orientation="Horizontal"
-                        Height="90"
+                            <!-- Timespan label -->
+                            <Label Content="15:50-16:15"
+                               FontFamily="Roboto"
+                               FontSize="20"
+                               Foreground="{StaticResource GrayBrush}"
+                               Margin="16, 8, 90, 0"/>
+
+                            <!-- Trip breadcrumb -->
+                            <StackPanel Orientation="Horizontal"
+                                    Margin="16, 0, 0, 8"
+                                    HorizontalAlignment="Left">
+                                <!-- Walk Icon -->
+                                <Image Source="../Images/ic_directions_walk_black_48dp_2x.png"
+                                   Style="{StaticResource DisableImage}"
+                                   Stretch="UniformToFill"
+                                   Width="25" 
+                                   Height="25"
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center"/>
+                                <!-- Arrow Icon -->
+                                <Image Source="../Images/ic_keyboard_arrow_right_black_48dp_2x.png"
+                                   Style="{StaticResource DisableImage}"
+                                   Stretch="UniformToFill"
+                                   Opacity="0.5"
+                                   Width="25" 
+                                   Height="25"
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center"/>
+
+                                <!-- Bus Icon and Number -->
+                                <StackPanel Orientation="Horizontal">
+                                    <!-- Bus Icon -->
+                                    <Image Source="../Images/ic_directions_bus_black_48dp_2x.png"
+                                       Style="{StaticResource DisableImage}"
+                                       Stretch="UniformToFill"
+                                       Width="20" 
+                                       Height="20"
+                                       VerticalAlignment="Center" 
+                                       HorizontalAlignment="Center"/>
+                                    <Border BorderBrush="DimGray"
+                                        BorderThickness="1"
+                                        CornerRadius="0"
+                                        Height="18">
+                                        <Label Content="27"
+                                           Padding="6, 0, 6, 0"
+                                           FontFamily="Roboto"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           VerticalContentAlignment="Center"
+                                           HorizontalContentAlignment="Center"/>
+                                    </Border>
+                                </StackPanel>
+
+                            </StackPanel>
+
+                        </StackPanel>
+
+                        <!-- Right content -->
+                        <Grid HorizontalAlignment="Right">
+
+                            <!-- Trip Duration -->
+                            <Label Content="25 min"
+                               FontFamily="Roboto"
+                               FontSize="20"
+                               Foreground="{StaticResource GrayBrush}"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Right"
+                               Margin="0, 8, 8, 0"/>
+
+                        </Grid>
+
+                    </StackPanel>
+
+                </Button>
+
+                <!-- Trip Result Button -->
+                <Button Style="{StaticResource CardButton}"
                         Margin="32, 4, 32, 4"
-                        Background="{StaticResource BackgroundLightBrush}">
-                    <StackPanel.Effect>
-                        <DropShadowEffect RenderingBias="Quality" Color="#FF4B4B4B" Opacity="0.3" BlurRadius="8" Direction="275" />
-                    </StackPanel.Effect>
+                        Height="auto"
+                        Width="auto">
 
+                    <!-- Trip Result Container -->
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Stretch"
+                                Background="{StaticResource BackgroundLightBrush}">
 
+                        <!-- Bus Icon -->
+                        <Image Source="../Images/ic_directions_bus_black_48dp_2x.png"
+                               Stretch="UniformToFill"
+                               Opacity="0.7"
+                               Width="30"
+                               Height="30"
+                               VerticalAlignment="Top" 
+                               HorizontalAlignment="Left"
+                               Margin="8, 8, 0, 0"/>
 
-                </StackPanel>
+                        <!-- Center content -->
+                        <StackPanel Orientation="Vertical"
+                                HorizontalAlignment="Center">
 
-                <StackPanel Orientation="Horizontal"
-                        Height="90"
+                            <!-- Timespan label -->
+                            <Label Content="15:50-16:15"
+                               FontFamily="Roboto"
+                               FontSize="20"
+                               Foreground="{StaticResource GrayBrush}"
+                               Margin="16, 8, 90, 0"/>
+
+                            <!-- Trip breadcrumb -->
+                            <StackPanel Orientation="Horizontal"
+                                    Margin="16, 0, 0, 8"
+                                    HorizontalAlignment="Left">
+                                <!-- Walk Icon -->
+                                <Image Source="../Images/ic_directions_walk_black_48dp_2x.png"
+                                   Style="{StaticResource DisableImage}"
+                                   Stretch="UniformToFill"
+                                   Width="25" 
+                                   Height="25"
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center"/>
+                                <!-- Arrow Icon -->
+                                <Image Source="../Images/ic_keyboard_arrow_right_black_48dp_2x.png"
+                                   Style="{StaticResource DisableImage}"
+                                   Stretch="UniformToFill"
+                                   Opacity="0.5"
+                                   Width="25" 
+                                   Height="25"
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center"/>
+
+                                <!-- Bus Icon and Number -->
+                                <StackPanel Orientation="Horizontal">
+                                    <!-- Bus Icon -->
+                                    <Image Source="../Images/ic_directions_bus_black_48dp_2x.png"
+                                       Style="{StaticResource DisableImage}"
+                                       Stretch="UniformToFill"
+                                       Width="20" 
+                                       Height="20"
+                                       VerticalAlignment="Center" 
+                                       HorizontalAlignment="Center"/>
+                                    <Border BorderBrush="DimGray"
+                                        BorderThickness="1"
+                                        CornerRadius="0"
+                                        Height="18">
+                                        <Label Content="27"
+                                           Padding="6, 0, 6, 0"
+                                           FontFamily="Roboto"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           VerticalContentAlignment="Center"
+                                           HorizontalContentAlignment="Center"/>
+                                    </Border>
+                                </StackPanel>
+
+                            </StackPanel>
+
+                        </StackPanel>
+
+                        <!-- Right content -->
+                        <Grid HorizontalAlignment="Right">
+
+                            <!-- Trip Duration -->
+                            <Label Content="25 min"
+                               FontFamily="Roboto"
+                               FontSize="20"
+                               Foreground="{StaticResource GrayBrush}"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Right"
+                               Margin="0, 8, 8, 0"/>
+
+                        </Grid>
+
+                    </StackPanel>
+
+                </Button>
+
+                <!-- Trip Result Button -->
+                <Button Style="{StaticResource CardButton}"
                         Margin="32, 4, 32, 4"
-                        Background="{StaticResource BackgroundLightBrush}">
-                    <StackPanel.Effect>
-                        <DropShadowEffect RenderingBias="Quality" Color="#FF4B4B4B" Opacity="0.3" BlurRadius="8" Direction="275" />
-                    </StackPanel.Effect>
+                        Height="auto"
+                        Width="auto">
 
+                    <!-- Trip Result Container -->
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Stretch"
+                                Background="{StaticResource BackgroundLightBrush}">
 
+                        <!-- Bus Icon -->
+                        <Image Source="../Images/ic_directions_bus_black_48dp_2x.png"
+                               Stretch="UniformToFill"
+                               Opacity="0.7"
+                               Width="30"
+                               Height="30"
+                               VerticalAlignment="Top" 
+                               HorizontalAlignment="Left"
+                               Margin="8, 8, 0, 0"/>
 
-                </StackPanel>
+                        <!-- Center content -->
+                        <StackPanel Orientation="Vertical"
+                                HorizontalAlignment="Center">
 
-                <StackPanel Orientation="Horizontal"
-                        Height="90"
+                            <!-- Timespan label -->
+                            <Label Content="15:50-16:15"
+                               FontFamily="Roboto"
+                               FontSize="20"
+                               Foreground="{StaticResource GrayBrush}"
+                               Margin="16, 8, 90, 0"/>
+
+                            <!-- Trip breadcrumb -->
+                            <StackPanel Orientation="Horizontal"
+                                    Margin="16, 0, 0, 8"
+                                    HorizontalAlignment="Left">
+                                <!-- Walk Icon -->
+                                <Image Source="../Images/ic_directions_walk_black_48dp_2x.png"
+                                   Style="{StaticResource DisableImage}"
+                                   Stretch="UniformToFill"
+                                   Width="25" 
+                                   Height="25"
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center"/>
+                                <!-- Arrow Icon -->
+                                <Image Source="../Images/ic_keyboard_arrow_right_black_48dp_2x.png"
+                                   Style="{StaticResource DisableImage}"
+                                   Stretch="UniformToFill"
+                                   Opacity="0.5"
+                                   Width="25" 
+                                   Height="25"
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center"/>
+
+                                <!-- Bus Icon and Number -->
+                                <StackPanel Orientation="Horizontal">
+                                    <!-- Bus Icon -->
+                                    <Image Source="../Images/ic_directions_bus_black_48dp_2x.png"
+                                       Style="{StaticResource DisableImage}"
+                                       Stretch="UniformToFill"
+                                       Width="20" 
+                                       Height="20"
+                                       VerticalAlignment="Center" 
+                                       HorizontalAlignment="Center"/>
+                                    <Border BorderBrush="DimGray"
+                                        BorderThickness="1"
+                                        CornerRadius="0"
+                                        Height="18">
+                                        <Label Content="27"
+                                           Padding="6, 0, 6, 0"
+                                           FontFamily="Roboto"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           VerticalContentAlignment="Center"
+                                           HorizontalContentAlignment="Center"/>
+                                    </Border>
+                                </StackPanel>
+
+                            </StackPanel>
+
+                        </StackPanel>
+
+                        <!-- Right content -->
+                        <Grid HorizontalAlignment="Right">
+
+                            <!-- Trip Duration -->
+                            <Label Content="25 min"
+                               FontFamily="Roboto"
+                               FontSize="20"
+                               Foreground="{StaticResource GrayBrush}"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Right"
+                               Margin="0, 8, 8, 0"/>
+
+                        </Grid>
+
+                    </StackPanel>
+
+                </Button>
+
+                <!-- Trip Result Button -->
+                <Button Style="{StaticResource CardButton}"
                         Margin="32, 4, 32, 4"
-                        Background="{StaticResource BackgroundLightBrush}">
-                    <StackPanel.Effect>
-                        <DropShadowEffect RenderingBias="Quality" Color="#FF4B4B4B" Opacity="0.3" BlurRadius="8" Direction="275" />
-                    </StackPanel.Effect>
+                        Height="auto"
+                        Width="auto">
 
+                    <!-- Trip Result Container -->
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Stretch"
+                                Background="{StaticResource BackgroundLightBrush}">
 
+                        <!-- Bus Icon -->
+                        <Image Source="../Images/ic_directions_bus_black_48dp_2x.png"
+                               Stretch="UniformToFill"
+                               Opacity="0.7"
+                               Width="30"
+                               Height="30"
+                               VerticalAlignment="Top" 
+                               HorizontalAlignment="Left"
+                               Margin="8, 8, 0, 0"/>
 
-                </StackPanel>
+                        <!-- Center content -->
+                        <StackPanel Orientation="Vertical"
+                                HorizontalAlignment="Center">
 
-                <StackPanel Orientation="Horizontal"
-                        Height="90"
+                            <!-- Timespan label -->
+                            <Label Content="15:50-16:15"
+                               FontFamily="Roboto"
+                               FontSize="20"
+                               Foreground="{StaticResource GrayBrush}"
+                               Margin="16, 8, 90, 0"/>
+
+                            <!-- Trip breadcrumb -->
+                            <StackPanel Orientation="Horizontal"
+                                    Margin="16, 0, 0, 8"
+                                    HorizontalAlignment="Left">
+                                <!-- Walk Icon -->
+                                <Image Source="../Images/ic_directions_walk_black_48dp_2x.png"
+                                   Style="{StaticResource DisableImage}"
+                                   Stretch="UniformToFill"
+                                   Width="25" 
+                                   Height="25"
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center"/>
+                                <!-- Arrow Icon -->
+                                <Image Source="../Images/ic_keyboard_arrow_right_black_48dp_2x.png"
+                                   Style="{StaticResource DisableImage}"
+                                   Stretch="UniformToFill"
+                                   Opacity="0.5"
+                                   Width="25" 
+                                   Height="25"
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center"/>
+
+                                <!-- Bus Icon and Number -->
+                                <StackPanel Orientation="Horizontal">
+                                    <!-- Bus Icon -->
+                                    <Image Source="../Images/ic_directions_bus_black_48dp_2x.png"
+                                       Style="{StaticResource DisableImage}"
+                                       Stretch="UniformToFill"
+                                       Width="20" 
+                                       Height="20"
+                                       VerticalAlignment="Center" 
+                                       HorizontalAlignment="Center"/>
+                                    <Border BorderBrush="DimGray"
+                                        BorderThickness="1"
+                                        CornerRadius="0"
+                                        Height="18">
+                                        <Label Content="27"
+                                           Padding="6, 0, 6, 0"
+                                           FontFamily="Roboto"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           VerticalContentAlignment="Center"
+                                           HorizontalContentAlignment="Center"/>
+                                    </Border>
+                                </StackPanel>
+
+                            </StackPanel>
+
+                        </StackPanel>
+
+                        <!-- Right content -->
+                        <Grid HorizontalAlignment="Right">
+
+                            <!-- Trip Duration -->
+                            <Label Content="25 min"
+                               FontFamily="Roboto"
+                               FontSize="20"
+                               Foreground="{StaticResource GrayBrush}"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Right"
+                               Margin="0, 8, 8, 0"/>
+
+                        </Grid>
+
+                    </StackPanel>
+
+                </Button>
+
+                <!-- Trip Result Button -->
+                <Button Style="{StaticResource CardButton}"
                         Margin="32, 4, 32, 4"
-                        Background="{StaticResource BackgroundLightBrush}">
-                    <StackPanel.Effect>
-                        <DropShadowEffect RenderingBias="Quality" Color="#FF4B4B4B" Opacity="0.3" BlurRadius="8" Direction="275" />
-                    </StackPanel.Effect>
+                        Height="auto"
+                        Width="auto">
 
+                    <!-- Trip Result Container -->
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Stretch"
+                                Background="{StaticResource BackgroundLightBrush}">
 
+                        <!-- Bus Icon -->
+                        <Image Source="../Images/ic_directions_bus_black_48dp_2x.png"
+                               Stretch="UniformToFill"
+                               Opacity="0.7"
+                               Width="30"
+                               Height="30"
+                               VerticalAlignment="Top" 
+                               HorizontalAlignment="Left"
+                               Margin="8, 8, 0, 0"/>
 
-                </StackPanel>
+                        <!-- Center content -->
+                        <StackPanel Orientation="Vertical"
+                                HorizontalAlignment="Center">
+
+                            <!-- Timespan label -->
+                            <Label Content="15:50-16:15"
+                               FontFamily="Roboto"
+                               FontSize="20"
+                               Foreground="{StaticResource GrayBrush}"
+                               Margin="16, 8, 90, 0"/>
+
+                            <!-- Trip breadcrumb -->
+                            <StackPanel Orientation="Horizontal"
+                                    Margin="16, 0, 0, 8"
+                                    HorizontalAlignment="Left">
+                                <!-- Walk Icon -->
+                                <Image Source="../Images/ic_directions_walk_black_48dp_2x.png"
+                                   Style="{StaticResource DisableImage}"
+                                   Stretch="UniformToFill"
+                                   Width="25" 
+                                   Height="25"
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center"/>
+                                <!-- Arrow Icon -->
+                                <Image Source="../Images/ic_keyboard_arrow_right_black_48dp_2x.png"
+                                   Style="{StaticResource DisableImage}"
+                                   Stretch="UniformToFill"
+                                   Opacity="0.5"
+                                   Width="25" 
+                                   Height="25"
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center"/>
+
+                                <!-- Bus Icon and Number -->
+                                <StackPanel Orientation="Horizontal">
+                                    <!-- Bus Icon -->
+                                    <Image Source="../Images/ic_directions_bus_black_48dp_2x.png"
+                                       Style="{StaticResource DisableImage}"
+                                       Stretch="UniformToFill"
+                                       Width="20" 
+                                       Height="20"
+                                       VerticalAlignment="Center" 
+                                       HorizontalAlignment="Center"/>
+                                    <Border BorderBrush="DimGray"
+                                        BorderThickness="1"
+                                        CornerRadius="0"
+                                        Height="18">
+                                        <Label Content="27"
+                                           Padding="6, 0, 6, 0"
+                                           FontFamily="Roboto"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           VerticalContentAlignment="Center"
+                                           HorizontalContentAlignment="Center"/>
+                                    </Border>
+                                </StackPanel>
+
+                            </StackPanel>
+
+                        </StackPanel>
+
+                        <!-- Right content -->
+                        <Grid HorizontalAlignment="Right">
+
+                            <!-- Trip Duration -->
+                            <Label Content="25 min"
+                               FontFamily="Roboto"
+                               FontSize="20"
+                               Foreground="{StaticResource GrayBrush}"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Right"
+                               Margin="0, 8, 8, 0"/>
+
+                        </Grid>
+
+                    </StackPanel>
+
+                </Button>
 
             </StackPanel>
 
         </ScrollViewer>
-        
-    </StackPanel>
+
+    </Grid>
 
 </local:BasePage>

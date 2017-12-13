@@ -686,6 +686,177 @@
         </Setter>
     </Style>
 
+    <!-- Card button -->
+    <Style x:Key="CardButton" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+
+                    <ControlTemplate.Resources>
+                        <Storyboard x:Key="OnMouseOver">
+                            <!-- Animate shadow depth of the effect. -->
+                            <DoubleAnimation Storyboard.TargetName="DropShadowEffect"
+                                             Storyboard.TargetProperty="ShadowDepth"
+                                             To="10"
+                                             Duration="0:0:0.1" />
+
+                            <!-- Animate shadow softness of the effect. As 
+                                               the Button appears to get farther from the shadow,  
+                                               the shadow gets softer. -->
+                            <DoubleAnimation Storyboard.TargetName="DropShadowEffect"
+                                             Storyboard.TargetProperty="BlurRadius"
+                                             To="16"
+                                             Duration="0:0:0.1" />
+                        </Storyboard>
+                        <Storyboard x:Key="OnMouseLeave">
+                            <!-- Animate shadow depth of the effect. -->
+                            <DoubleAnimation Storyboard.TargetName="DropShadowEffect"
+                                             Storyboard.TargetProperty="ShadowDepth"
+                                             To="5"
+                                             Duration="0:0:0.1" />
+
+                            <!-- Animate shadow softness of the effect. As 
+                                               the Button appears to get farther from the shadow,  
+                                               the shadow gets softer. -->
+                            <DoubleAnimation Storyboard.TargetName="DropShadowEffect"
+                                             Storyboard.TargetProperty="BlurRadius"
+                                             To="8"
+                                             Duration="0:0:0.1" />
+                        </Storyboard>
+                        <Storyboard x:Key="OnPressed">
+                            <!-- Animate shadow depth of the effect. -->
+                            <DoubleAnimation Storyboard.TargetName="DropShadowEffect"
+                                             Storyboard.TargetProperty="ShadowDepth"
+                                             To="14"
+                                             Duration="0:0:0.1" />
+
+                            <!-- Animate shadow softness of the effect. As 
+                                               the Button appears to get farther from the shadow,  
+                                               the shadow gets softer. -->
+                            <DoubleAnimation Storyboard.TargetName="DropShadowEffect"
+                                             Storyboard.TargetProperty="BlurRadius"
+                                             To="24"
+                                             Duration="0:0:0.1" />
+
+                            <DoubleAnimation Storyboard.TargetName="Content"
+                                             Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"
+                                             Duration="0:0:0.1"
+                                             To="1.04"/>
+                            <DoubleAnimation Storyboard.TargetName="Content"
+                                             Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"
+                                             Duration="0:0:0.1"
+                                             To="1.04"/>
+                        </Storyboard>
+                        <Storyboard x:Key="OnReleased">
+                            <DoubleAnimation Storyboard.TargetName="Content"
+                                             Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"
+                                             Duration="0:0:0.1"
+                                             To="1.0"/>
+                            <DoubleAnimation Storyboard.TargetName="Content"
+                                             Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"
+                                             Duration="0:0:0.1"
+                                             To="1.0"/>
+                        </Storyboard>
+                    </ControlTemplate.Resources>
+                    
+                    <Grid Name="ButtonGrid" Background="Transparent">
+
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition From="MouseOver"
+                                                      To="Normal"
+                                                      GeneratedDuration="0:0:0.1"/>
+                                </VisualStateGroup.Transitions>
+                                <VisualStateGroup.States>
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <!-- Animate shadow depth of the effect. -->
+                                            <DoubleAnimation Storyboard.TargetName="DropShadowEffect"
+                                                             Storyboard.TargetProperty="ShadowDepth"
+                                                             To="2"
+                                                             Duration="0:0:0.1" />
+
+                                            <!-- Animate shadow softness of the effect. As 
+                                               the Button appears to get farther from the shadow,  
+                                               the shadow gets softer. -->
+                                            <DoubleAnimation Storyboard.TargetName="DropShadowEffect"
+                                                             Storyboard.TargetProperty="BlurRadius"
+                                                             To="1"
+                                                             Duration="0:0:0.1" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup.States>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        
+                        <Grid.Effect>
+                            <DropShadowEffect x:Name="DropShadowEffect"
+                                              RenderingBias="Quality"
+                                              Color="#FF4B4B4B" 
+                                              Opacity="0.3"
+                                              BlurRadius="8" 
+                                              ShadowDepth="5" 
+                                              Direction="275" />
+                        </Grid.Effect>
+
+                        <!-- Content -->
+                        <ContentPresenter Name="Content"
+                                          RenderTransformOrigin="0.5, 0.5"
+                                          Margin="5"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center">
+                            
+                            <ContentPresenter.RenderTransform>
+                                <ScaleTransform CenterY="0.5"
+                                                CenterX="0.5"/>
+                            </ContentPresenter.RenderTransform>
+                        </ContentPresenter>
+
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.ExitActions>
+                                <BeginStoryboard Storyboard="{StaticResource OnMouseLeave}" x:Name="OnMouseLeave_BeginStoryboard"/>
+                            </Trigger.ExitActions>
+                            <Trigger.EnterActions>
+                                <BeginStoryboard Storyboard="{StaticResource OnMouseOver}" x:Name="OnMouseOver_BeginStoryboard"/>
+                            </Trigger.EnterActions>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Trigger.ExitActions>
+                                <BeginStoryboard Storyboard="{StaticResource OnMouseOver}" x:Name="OnMouseOver_BeginStoryboard_2"/>
+                                <BeginStoryboard Storyboard="{StaticResource OnReleased}" x:Name="OnReleased_BeginStoryboard"/>
+                            </Trigger.ExitActions>
+                            <Trigger.EnterActions>
+                                <BeginStoryboard Storyboard="{StaticResource OnPressed}" x:Name="OnPressed_BeginStoryboard"/>
+                            </Trigger.EnterActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <!-- Floating Action Button -->
     <Style x:Key="FAB" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="Transparent"/>
