@@ -107,6 +107,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\TripDetailsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Pages\TripSearchResultsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -139,6 +143,9 @@
     </Compile>
     <Compile Include="Pages\Home_SubPages\HomeSubScheduledTripsPage.cs" />
     <Compile Include="Pages\Home_SubPages\HomeSubTripSearchPage.cs" />
+    <Compile Include="Pages\TripDetailsPage.xaml.cs">
+      <DependentUpon>TripDetailsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\TripSearchResultsPage.xaml.cs">
       <DependentUpon>TripSearchResultsPage.xaml</DependentUpon>
     </Compile>

@@ -21,14 +21,17 @@ namespace Dit_Wpf_App.Converters
                 case ApplicationPage.Home:
                     return new HomePage();
 
-                case ApplicationPage.HomeSubTripSearchPage:
+                case ApplicationPage.HomeSubTripSearch:
                     return new HomeSubTripSearchPage();
 
-                case ApplicationPage.HomeSubScheduledTripsPage:
+                case ApplicationPage.HomeSubScheduledTrips:
                     return new HomeSubScheduledTripsPage();
 
-                case ApplicationPage.TripSearchResultsPage:
+                case ApplicationPage.TripSearchResults:
                     return new TripSearchResultsPage();
+
+                case ApplicationPage.TripDetails:
+                    return new TripDetailsPage();
 
                 default:
                     Debugger.Break();

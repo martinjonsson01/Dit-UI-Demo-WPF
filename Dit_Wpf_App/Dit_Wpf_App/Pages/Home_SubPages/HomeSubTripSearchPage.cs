@@ -56,7 +56,7 @@ namespace Dit_Wpf_App.Pages.Home_SubPages
             }
             // Wait for the button to finish animating.
             await Task.Delay(120);
-            mainWindow.MainPageHost.CurrentPage = ApplicationPageConverter.GetPage(ApplicationPage.TripSearchResultsPage);
+            mainWindow.MainPageHost.CurrentPage = ApplicationPageConverter.GetPage(ApplicationPage.TripSearchResults);
             mainWindow.MainPageHost.CurrentPage.DataContext = homePage;
 
             mainWindow.MainPageHost.CurrentPage.Unloaded += async (o, args) =>

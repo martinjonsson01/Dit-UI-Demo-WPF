@@ -19,16 +19,21 @@ namespace Dit_Wpf_App.DataModels
         /// <summary>
         /// The trip search sub-section of the home page.
         /// </summary>
-        HomeSubTripSearchPage = 1,
+        HomeSubTripSearch = 1,
 
         /// <summary>
         /// The scheduled trips sub-section of the home page.
         /// </summary>
-        HomeSubScheduledTripsPage = 2,
+        HomeSubScheduledTrips = 2,
 
         /// <summary>
         /// The trip search results page.
         /// </summary>
-        TripSearchResultsPage = 3,
+        TripSearchResults = 3,
+
+        /// <summary>
+        /// The trip details page.
+        /// </summary>
+        TripDetails = 4,
     }
 }

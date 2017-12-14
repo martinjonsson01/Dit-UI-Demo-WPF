@@ -28,7 +28,7 @@ namespace Dit_Wpf_App.Pages
             SlideSeconds = 0.0001f;
             InitializeComponent();
             PageLoadAnimation = PageAnimation.AppearInstant;
-            HomePageHost.CurrentPage = ApplicationPageConverter.GetPage(ApplicationPage.HomeSubTripSearchPage);
+            HomePageHost.CurrentPage = ApplicationPageConverter.GetPage(ApplicationPage.HomeSubTripSearch);
             HomePageHost.CurrentPage.DataContext = this;
             SlideSeconds = 0.4f;
         }
@@ -49,7 +49,7 @@ namespace Dit_Wpf_App.Pages
                 newPage.PageUnloadAnimation = searchTabClicked ? PageAnimation.SlideOutToRight : PageAnimation.SlideOutToLeft;
             }
             HomePageHost.CurrentPage =
-                ApplicationPageConverter.GetPage(searchTabClicked ? ApplicationPage.HomeSubTripSearchPage : ApplicationPage.HomeSubScheduledTripsPage);
+                ApplicationPageConverter.GetPage(searchTabClicked ? ApplicationPage.HomeSubTripSearch : ApplicationPage.HomeSubScheduledTrips);
             HomePageHost.CurrentPage.DataContext = this;
         }
     }

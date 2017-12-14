@@ -188,7 +188,8 @@
                 <Button Style="{StaticResource CardButton}"
                         Margin="16, 10, 16, 4"
                         Height="auto"
-                        Width="auto">
+                        Width="auto"
+                        Click="Trip_Click">
 
                     <!-- Trip Result Container -->
                     <StackPanel Orientation="Horizontal"

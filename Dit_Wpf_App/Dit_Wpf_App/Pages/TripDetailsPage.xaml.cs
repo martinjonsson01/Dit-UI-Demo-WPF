@@ -20,11 +20,11 @@ using Dit_Wpf_App.DataModels;
 namespace Dit_Wpf_App.Pages
 {
     /// <summary>
-    /// Interaction logic for TripSearchResultsPage.xaml
+    /// Interaction logic for TripDetailsPage.xaml
     /// </summary>
-    public partial class TripSearchResultsPage : BasePage
+    public partial class TripDetailsPage : BasePage
     {
-        public TripSearchResultsPage()
+        public TripDetailsPage()
         {
             PageLoadAnimation = PageAnimation.SlideAndFadeInFromBottom;
             PageUnloadAnimation = PageAnimation.SlideAndFadeOutToBottom;
@@ -40,8 +40,8 @@ namespace Dit_Wpf_App.Pages
             {
                 if (homePage.DataContext is MainWindow mainWindow)
                 {
-                    mainWindow.MainPageHost.CurrentPage = ApplicationPageConverter.GetPage(ApplicationPage.Home);
-                    mainWindow.MainPageHost.CurrentPage.DataContext = mainWindow;
+                    mainWindow.MainPageHost.CurrentPage = ApplicationPageConverter.GetPage(ApplicationPage.TripSearchResults);
+                    mainWindow.MainPageHost.CurrentPage.DataContext = homePage;
 
                     mainWindow.MainPageHost.CurrentPage.PageLoadAnimation = PageAnimation.AppearInstant;
                     if (mainWindow.MainPageHost.CurrentPage is HomePage newHomePage)
@@ -50,15 +50,6 @@ namespace Dit_Wpf_App.Pages
                     }
                 }
             }
-        }
-
-        private void Trip_Click(object sender, RoutedEventArgs e)
-        {
-            if (!(DataContext is HomePage homePage)) return;
-            if (!(homePage.DataContext is MainWindow mainWindow)) return;
-            // Open Trip Details page.
-            mainWindow.MainPageHost.CurrentPage = ApplicationPageConverter.GetPage(ApplicationPage.TripDetails);
-            mainWindow.MainPageHost.CurrentPage.DataContext = homePage;
         }
     }
 }
