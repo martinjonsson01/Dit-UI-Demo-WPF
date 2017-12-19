@@ -35,15 +35,7 @@ namespace Dit_Wpf_App.Pages.Home_SubPages
         {
             if (!(DataContext is HomePage homePage)) return;
             if (!(homePage.DataContext is MainWindow mainWindow)) return;
-
-            // Store old PageAnimations.
-            var homeUnload = homePage.PageUnloadAnimation;
-            var homeLoad = homePage.PageLoadAnimation;
-            var tripUnload = PageUnloadAnimation;
-            var tripLoad = PageLoadAnimation;
-            var homePageHostUnload = homePage.HomePageHost.CurrentPage.PageUnloadAnimation;
-            var homePageHostLoad = homePage.HomePageHost.CurrentPage.PageLoadAnimation;
-
+            
             // Disable animations for all pages.
             homePage.PageUnloadAnimation = PageAnimation.None;
             homePage.PageLoadAnimation = PageAnimation.None;
@@ -58,19 +50,6 @@ namespace Dit_Wpf_App.Pages.Home_SubPages
             await Task.Delay(120);
             mainWindow.MainPageHost.CurrentPage = ApplicationPageConverter.GetPage(ApplicationPage.TripSearchResults);
             mainWindow.MainPageHost.CurrentPage.DataContext = homePage;
-
-            mainWindow.MainPageHost.CurrentPage.Unloaded += async (o, args) =>
-            {
-                // Add back animations after TripSearchResultsPage has been unloaded.
-                // Delay so that animations don't have time to start.
-               /* await Task.Delay(100);
-                homePage.PageUnloadAnimation = homeUnload;
-                homePage.PageLoadAnimation = homeLoad;
-                PageUnloadAnimation = tripUnload;
-                PageLoadAnimation = tripLoad;
-                homePage.HomePageHost.CurrentPage.PageUnloadAnimation = homePageHostUnload;
-                homePage.HomePageHost.CurrentPage.PageLoadAnimation = homePageHostLoad;*/
-            };
         }
 
         private void Swap_Click(object sender, RoutedEventArgs e)

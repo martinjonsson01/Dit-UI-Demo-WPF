@@ -13,7 +13,7 @@
       UseLayoutRounding="True">
 
     <!-- Main Grid -->
-    <Grid Background="White">
+    <StackPanel Background="{StaticResource BackgroundLightBrush}">
 
         <!-- Appbar Grid -->
         <Grid Height="207"
@@ -24,7 +24,7 @@
             <Image Source="../Images/Logo.png"
                    Margin="167,38,168,0"
                    Stretch="Uniform"
-                   Width="69" 
+                   Width="69"
                    Height="42"
                    SnapsToDevicePixels="True"
                    VerticalAlignment="Top" 
@@ -56,7 +56,7 @@
             <!-- Container for icons and inputs -->
             <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Center"
-                        Margin="0, 100, 30, 0">
+                        Margin="0, 100, 79, 0">
 
                 <!-- Container for input icons -->
                 <StackPanel Orientation="Vertical"
@@ -109,76 +109,148 @@
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            Margin="0, 15, 0, 0"
-                           Content="Norrahammar Slätten"/>
+                           Content="Jönköping Juneporten"/>
 
                 </StackPanel>
-
-                <!-- Swap Button -->
-                <Button Style="{StaticResource ImageButton}"
-                        Width="49" 
-                        Height="49">
-                    <Image Source="../Images/ic_swap_vert_white_48dp_2x.png"
-                           Stretch="UniformToFill" />
-                </Button>
 
             </StackPanel>
 
         </Grid>
 
-        <!-- Settings area -->
-        <Grid Background="{StaticResource MainDarkBrush}"
-              Height="76" 
-              VerticalAlignment="Top"
-              Margin="0,207,0,0">
+        <!-- Trip Result Container -->
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Stretch"
+                    Background="{StaticResource BackgroundLightBrush}">
 
-            <Button Style="{StaticResource ImageButton}"
-                    Width="250"
-                    Height="250"
-                    Padding="0"
-                    Margin="45, 0, 170, 0">
+            <!-- Center content -->
+            <StackPanel Orientation="Vertical"
+                        HorizontalAlignment="Center"
+                        Margin="15, 0, 60, 0">
 
-                <!-- Container for input icons -->
+                <!-- Timespan label -->
+                <Label Content="14:50-15:15"
+                       FontFamily="Roboto"
+                       FontSize="20"
+                       Foreground="{StaticResource GrayBrush}"
+                       Margin="16, 8, 0, 0"/>
+
+                <!-- Trip breadcrumb -->
                 <StackPanel Orientation="Horizontal"
-                            VerticalAlignment="Top"
-                            Margin="0, -10, 0, 0">
-
-                    <!-- Settings Button -->
-                    <Image Source="../Images/ic_tune_white_48dp_2x.png"
+                            Margin="16, 0, 0, 0"
+                            HorizontalAlignment="Left">
+                    <!-- Walk Icon -->
+                    <Image Source="../Images/ic_directions_walk_black_48dp_2x.png"
+                           Style="{StaticResource DisableImage}"
                            Stretch="UniformToFill"
                            Width="25" 
                            Height="25"
-                           RenderOptions.BitmapScalingMode="Linear"
-                           VerticalAlignment="Top" 
-                           HorizontalAlignment="Left"
-                           Margin="5, 12, 0, 0"/>
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Center"/>
+                    <!-- Arrow Icon -->
+                    <Image Source="../Images/ic_keyboard_arrow_right_black_48dp_2x.png"
+                           Style="{StaticResource DisableImage}"
+                           Stretch="UniformToFill"
+                           Opacity="0.5"
+                           Width="25" 
+                           Height="25"
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Center"/>
 
-                    <!-- Container for settings info -->
-                    <StackPanel Orientation="Vertical"
-                                Margin="5, 0, 0, 0">
-
-                        <Label Content="ALTERNATIV"
-                               FontFamily="Roboto"
-                               FontSize="16"
-                               FontWeight="Bold"
-                               Foreground="White"
-                               VerticalContentAlignment="Center"
-                               Margin="5, 11, 0, 0"/>
-
-                        <Label Content="Ankomst 18:32"
-                               FontFamily="Roboto"
-                               FontSize="15"
-                               Foreground="White"
-                               VerticalContentAlignment="Center"
-                               Margin="5, 0, 0, 0"/>
-
+                    <!-- Bus Icon and Number -->
+                    <StackPanel Orientation="Horizontal">
+                        <!-- Bus Icon -->
+                        <Image Source="../Images/ic_directions_bus_black_48dp_2x.png"
+                               Style="{StaticResource DisableImage}"
+                               Stretch="UniformToFill"
+                               Width="20" 
+                               Height="20"
+                               VerticalAlignment="Center" 
+                               HorizontalAlignment="Center"/>
+                        <Border BorderBrush="DimGray"
+                                BorderThickness="1"
+                                CornerRadius="0"
+                                Height="18">
+                            <Label Content="27"
+                                   Padding="6, 0, 6, 0"
+                                   FontFamily="Roboto"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   VerticalContentAlignment="Center"
+                                   HorizontalContentAlignment="Center"/>
+                        </Border>
                     </StackPanel>
 
                 </StackPanel>
 
-            </Button>
+                <!-- Departure text -->
+                <Label Content="15:56 Från Norrahammar Slätten"
+                       FontFamily="Roboto"
+                       FontSize="15"
+                       Foreground="{StaticResource GrayBrush}"
+                       Margin="16, 0, 0, 0"/>
 
-        </Grid>
+                <StackPanel Orientation="Horizontal"
+                            Margin="0, 0, 0, 24">
 
-    </Grid>
+                    <!-- Walk Icon -->
+                    <Image Source="../Images/ic_directions_walk_black_48dp_2x.png"
+                           Stretch="UniformToFill"
+                           Opacity="0.7"
+                           Width="23"
+                           Height="23"
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Center"
+                           Margin="16, 0, 0, 0"/>
 
+                    <!-- Walk text -->
+                    <Label Content="6 min"
+                           FontFamily="Roboto"
+                           FontSize="14"
+                           Foreground="{StaticResource GrayBrush}"
+                           Padding="3"
+                           Margin="4, 0, 0, 0"/>
+
+                </StackPanel>
+
+            </StackPanel>
+
+            <!-- Right content -->
+            <Grid HorizontalAlignment="Right">
+
+                <!-- Trip Duration -->
+                <Label Content="25 min"
+                       FontFamily="Roboto"
+                       FontSize="20"
+                       Foreground="{StaticResource GrayBrush}"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Right"
+                       Margin="0, 8, 8, 0"/>
+
+                <!-- Schedule Button -->
+                <Button Style="{StaticResource ImageButton}"
+                        Width="40" 
+                        Height="40"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Right"
+                        Margin="0, 0, 8, 8"
+                        Click="Schedule_Click">
+                    <Image Source="../Images/ic_schedule_black_48dp_2x.png"
+                           Stretch="UniformToFill" 
+                           Opacity="0.8"/>
+                </Button>
+
+            </Grid>
+
+        </StackPanel>
+
+        <!-- Divider -->
+        <StackPanel Height="1"
+                    HorizontalAlignment="Stretch"
+                    Opacity="0.5"
+                    Background="{StaticResource GrayBrush}"/>
+
+    </StackPanel>
+
+    
+    
 </local:BasePage>

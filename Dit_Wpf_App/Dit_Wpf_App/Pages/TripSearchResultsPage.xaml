@@ -109,7 +109,7 @@
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            Margin="0, 15, 0, 0"
-                           Content="Norrahammar Slätten"/>
+                           Content="Jönköping Juneporten"/>
 
                 </StackPanel>
 
@@ -211,7 +211,7 @@
                                 HorizontalAlignment="Center">
 
                             <!-- Timespan label -->
-                            <Label Content="15:50-16:15"
+                            <Label Content="14:50-15:15"
                                FontFamily="Roboto"
                                FontSize="20"
                                Foreground="{StaticResource GrayBrush}"
@@ -266,7 +266,7 @@
                             </StackPanel>
 
                             <!-- Departure text -->
-                            <Label Content="15:50 Från Jönköping Juneporten"
+                            <Label Content="15:56 Från Norrahammar Slätten"
                                FontFamily="Roboto"
                                FontSize="15"
                                Foreground="{StaticResource GrayBrush}"
@@ -318,11 +318,12 @@
 
                             <!-- Schedule Button -->
                             <Button Style="{StaticResource ImageButton}"
-                                Width="40" 
-                                Height="40"
-                                VerticalAlignment="Bottom"
-                                HorizontalAlignment="Right"
-                                Margin="0, 0, 8, 8">
+                                    Width="40" 
+                                    Height="40"
+                                    VerticalAlignment="Bottom"
+                                    HorizontalAlignment="Right"
+                                    Margin="0, 0, 8, 8"
+                                    Click="Schedule_Click">
                                 <Image Source="../Images/ic_schedule_black_48dp_2x.png"
                                    Stretch="UniformToFill" 
                                    Opacity="0.8"/>
@@ -360,7 +361,7 @@
                                 HorizontalAlignment="Center">
 
                             <!-- Timespan label -->
-                            <Label Content="15:50-16:15"
+                            <Label Content="14:47-15:24"
                                FontFamily="Roboto"
                                FontSize="20"
                                Foreground="{StaticResource GrayBrush}"
@@ -402,7 +403,7 @@
                                         BorderThickness="1"
                                         CornerRadius="0"
                                         Height="18">
-                                        <Label Content="27"
+                                        <Label Content="28"
                                            Padding="6, 0, 6, 0"
                                            FontFamily="Roboto"
                                            VerticalAlignment="Center"
@@ -411,7 +412,26 @@
                                            HorizontalContentAlignment="Center"/>
                                     </Border>
                                 </StackPanel>
+                                
+                                <!-- Arrow Icon -->
+                                <Image Source="../Images/ic_keyboard_arrow_right_black_48dp_2x.png"
+                                       Style="{StaticResource DisableImage}"
+                                       Stretch="UniformToFill"
+                                       Opacity="0.5"
+                                       Width="25" 
+                                       Height="25"
+                                       VerticalAlignment="Center" 
+                                       HorizontalAlignment="Center"/>
 
+                                <!-- Walk Icon -->
+                                <Image Source="../Images/ic_directions_walk_black_48dp_2x.png"
+                                       Style="{StaticResource DisableImage}"
+                                       Stretch="UniformToFill"
+                                       Width="25" 
+                                       Height="25"
+                                       VerticalAlignment="Center" 
+                                       HorizontalAlignment="Center"/>
+                                
                             </StackPanel>
 
                         </StackPanel>
@@ -420,7 +440,7 @@
                         <Grid HorizontalAlignment="Right">
 
                             <!-- Trip Duration -->
-                            <Label Content="25 min"
+                            <Label Content="37 min"
                                FontFamily="Roboto"
                                FontSize="20"
                                Foreground="{StaticResource GrayBrush}"
@@ -460,7 +480,7 @@
                                 HorizontalAlignment="Center">
 
                             <!-- Timespan label -->
-                            <Label Content="15:50-16:15"
+                            <Label Content="14:50-15:25"
                                FontFamily="Roboto"
                                FontSize="20"
                                Foreground="{StaticResource GrayBrush}"
@@ -502,13 +522,48 @@
                                         BorderThickness="1"
                                         CornerRadius="0"
                                         Height="18">
-                                        <Label Content="27"
+                                        <Label Content="28"
                                            Padding="6, 0, 6, 0"
                                            FontFamily="Roboto"
                                            VerticalAlignment="Center"
                                            HorizontalAlignment="Center"
                                            VerticalContentAlignment="Center"
                                            HorizontalContentAlignment="Center"/>
+                                    </Border>
+                                </StackPanel>
+
+                                <!-- Arrow Icon -->
+                                <Image Source="../Images/ic_keyboard_arrow_right_black_48dp_2x.png"
+                                       Style="{StaticResource DisableImage}"
+                                       Stretch="UniformToFill"
+                                       Opacity="0.5"
+                                       Width="25" 
+                                       Height="25"
+                                       VerticalAlignment="Center" 
+                                       HorizontalAlignment="Center"/>
+
+                                <!-- Bus Icon and Number -->
+                                <StackPanel Orientation="Horizontal">
+                                    <!-- Bus Icon -->
+                                    <Image Source="../Images/ic_directions_bus_black_48dp_2x.png"
+                                           Style="{StaticResource DisableImage}"
+                                           Stretch="UniformToFill"
+                                           Width="20" 
+                                           Height="20"
+                                           VerticalAlignment="Center" 
+                                           HorizontalAlignment="Center"/>
+                                    <Border BorderBrush="DimGray"
+                                            BorderThickness="1"
+                                            CornerRadius="0"
+                                            Height="18">
+                                        <Label Content="1"
+                                               Width="25.6"
+                                               Padding="6, 0, 6, 0"
+                                               FontFamily="Roboto"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Center"
+                                               VerticalContentAlignment="Center"
+                                               HorizontalContentAlignment="Center"/>
                                     </Border>
                                 </StackPanel>
 
@@ -520,7 +575,7 @@
                         <Grid HorizontalAlignment="Right">
 
                             <!-- Trip Duration -->
-                            <Label Content="25 min"
+                            <Label Content="35 min"
                                FontFamily="Roboto"
                                FontSize="20"
                                Foreground="{StaticResource GrayBrush}"
@@ -560,7 +615,7 @@
                                 HorizontalAlignment="Center">
 
                             <!-- Timespan label -->
-                            <Label Content="15:50-16:15"
+                            <Label Content="14:20-15:45"
                                FontFamily="Roboto"
                                FontSize="20"
                                Foreground="{StaticResource GrayBrush}"

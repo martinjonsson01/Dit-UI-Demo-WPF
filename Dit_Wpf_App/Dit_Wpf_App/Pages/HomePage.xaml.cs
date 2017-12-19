@@ -33,7 +33,7 @@ namespace Dit_Wpf_App.Pages
             SlideSeconds = 0.4f;
         }
 
-        private void Tab_Click(object sender, RoutedEventArgs e)
+        public void Tab_Click(object sender, RoutedEventArgs e)
         {
             bool searchTabClicked = (sender as Control)?.Name == "ButtonTabSearch";
             ButtonTabSchedule.IsEnabled = searchTabClicked;
