@@ -20,6 +20,9 @@
     <Color x:Key="Gray">#585858</Color>
     <SolidColorBrush x:Key="GrayBrush" Color="{StaticResource Gray}" />
 
+    <Color x:Key="DarkGray">#404040</Color>
+    <SolidColorBrush x:Key="DarkGrayBrush" Color="{StaticResource DarkGray}" />
+
     <Color x:Key="Link">#5893f5</Color>
     <SolidColorBrush x:Key="LinkBrush" Color="{StaticResource Link}" />
 

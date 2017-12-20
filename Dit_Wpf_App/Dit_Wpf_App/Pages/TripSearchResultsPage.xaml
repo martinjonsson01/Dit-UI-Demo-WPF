@@ -305,7 +305,8 @@
                         </StackPanel>
 
                         <!-- Right content -->
-                        <Grid HorizontalAlignment="Right">
+                        <Grid HorizontalAlignment="Right"
+                              Margin="0, 0, 8, 0">
 
                             <!-- Trip Duration -->
                             <Label Content="25 min"
@@ -358,14 +359,14 @@
 
                         <!-- Center content -->
                         <StackPanel Orientation="Vertical"
-                                HorizontalAlignment="Center">
+                                    HorizontalAlignment="Center">
 
                             <!-- Timespan label -->
                             <Label Content="14:47-15:24"
                                FontFamily="Roboto"
                                FontSize="20"
                                Foreground="{StaticResource GrayBrush}"
-                               Margin="16, 8, 90, 0"/>
+                               Margin="16, 8, 80, 0"/>
 
                             <!-- Trip breadcrumb -->
                             <StackPanel Orientation="Horizontal"
@@ -484,7 +485,7 @@
                                FontFamily="Roboto"
                                FontSize="20"
                                Foreground="{StaticResource GrayBrush}"
-                               Margin="16, 8, 90, 0"/>
+                               Margin="16, 8, 80, 0"/>
 
                             <!-- Trip breadcrumb -->
                             <StackPanel Orientation="Horizontal"
@@ -619,7 +620,7 @@
                                FontFamily="Roboto"
                                FontSize="20"
                                Foreground="{StaticResource GrayBrush}"
-                               Margin="16, 8, 90, 0"/>
+                               Margin="16, 8, 80, 0"/>
 
                             <!-- Trip breadcrumb -->
                             <StackPanel Orientation="Horizontal"
@@ -719,7 +720,7 @@
                                FontFamily="Roboto"
                                FontSize="20"
                                Foreground="{StaticResource GrayBrush}"
-                               Margin="16, 8, 90, 0"/>
+                               Margin="16, 8, 80, 0"/>
 
                             <!-- Trip breadcrumb -->
                             <StackPanel Orientation="Horizontal"
@@ -819,7 +820,7 @@
                                FontFamily="Roboto"
                                FontSize="20"
                                Foreground="{StaticResource GrayBrush}"
-                               Margin="16, 8, 90, 0"/>
+                               Margin="16, 8, 80, 0"/>
 
                             <!-- Trip breadcrumb -->
                             <StackPanel Orientation="Horizontal"
@@ -919,7 +920,7 @@
                                FontFamily="Roboto"
                                FontSize="20"
                                Foreground="{StaticResource GrayBrush}"
-                               Margin="16, 8, 90, 0"/>
+                               Margin="16, 8, 80, 0"/>
 
                             <!-- Trip breadcrumb -->
                             <StackPanel Orientation="Horizontal"

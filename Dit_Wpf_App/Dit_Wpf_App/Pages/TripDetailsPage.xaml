@@ -183,7 +183,7 @@
                 </StackPanel>
 
                 <!-- Departure text -->
-                <Label Content="15:56 Från Norrahammar Slätten"
+                <Label Content="14:56 Från Norrahammar Slätten"
                        FontFamily="Roboto"
                        FontSize="15"
                        Foreground="{StaticResource GrayBrush}"
@@ -248,6 +248,233 @@
                     HorizontalAlignment="Stretch"
                     Opacity="0.5"
                     Background="{StaticResource GrayBrush}"/>
+        
+        <!-- Trip Details -->
+        <StackPanel Margin="0, 24, 0, 0">
+
+            <!-- Row -->
+            <StackPanel Orientation="Horizontal"
+                        Margin="0, 8, 0, 8">
+
+                <!-- Timespan label -->
+                <Label Content="14:50"
+                       FontFamily="Roboto"
+                       FontSize="16"
+                       Foreground="{StaticResource DarkGrayBrush}"
+                       VerticalAlignment="Top"
+                       Margin="32, 0, 0, 0"/>
+
+                <StackPanel HorizontalAlignment="Stretch"
+                            Width="295"
+                            Margin="0, 0, 16, 0">
+
+                    <!-- Trip leg label -->
+                    <Label Content="Hasselvägen 9"
+                           FontFamily="Roboto"
+                           FontSize="20"
+                           Foreground="Black"
+                           Padding="0, 5, 5, 0"
+                           Margin="64, 0, 0, 0"/>
+
+                    <!-- Trip leg label -->
+                    <Label Content="562 31 Norrahammar"
+                           FontFamily="Roboto"
+                           FontSize="14"
+                           Foreground="Black"
+                           VerticalAlignment="Top"
+                           Padding="0, 2, 5, 10"
+                           Margin="64, 0, 0, 0"/>
+
+                    <!-- Divider -->
+                    <StackPanel Height="1"
+                                HorizontalAlignment="Stretch"
+                                Opacity="0.5"
+                                Margin="64, 0, 0, 0"
+                                Background="{StaticResource GrayBrush}"/>
+
+                </StackPanel>
+                
+            </StackPanel>
+
+            <!-- Row -->
+            <StackPanel Orientation="Horizontal"
+                        Margin="0, 0, 0, 8">
+
+                <!-- Bus Icon -->
+                <Image Source="../Images/ic_directions_walk_black_48dp_2x.png"
+                       Style="{StaticResource DisableImage}"
+                       Stretch="UniformToFill"
+                       Width="20" 
+                       Height="20"
+                       VerticalAlignment="Top" 
+                       HorizontalAlignment="Center"
+                       Margin="58, 8, 0, 0"/>
+
+                <StackPanel HorizontalAlignment="Stretch"
+                            Width="295"
+                            Margin="0, 0, 16, 0">
+
+                    <!-- Trip leg label -->
+                    <Label Content="Hasselvägen 9"
+                           FontFamily="Roboto"
+                           FontSize="20"
+                           Foreground="Black"
+                           Padding="0, 5, 5, 0"
+                           Margin="64, 0, 0, 0"/>
+
+                    <!-- Trip leg label -->
+                    <Label Content="562 31 Norrahammar"
+                           FontFamily="Roboto"
+                           FontSize="14"
+                           Foreground="Black"
+                           VerticalAlignment="Top"
+                           Padding="0, 2, 5, 10"
+                           Margin="64, 0, 0, 0"/>
+
+                    <!-- Divider -->
+                    <StackPanel Height="1"
+                                HorizontalAlignment="Stretch"
+                                Opacity="0.5"
+                                Margin="64, 0, 0, 0"
+                                Background="{StaticResource GrayBrush}"/>
+
+                </StackPanel>
+
+            </StackPanel>
+
+            <!-- Row -->
+            <StackPanel Orientation="Horizontal"
+                        Margin="0, 0, 0, 8">
+
+                <!-- Timespan label -->
+                <Label Content="14:50"
+                       FontFamily="Roboto"
+                       FontSize="16"
+                       Foreground="{StaticResource DarkGrayBrush}"
+                       VerticalAlignment="Top"
+                       Margin="32, 0, 0, 0"/>
+
+                <StackPanel HorizontalAlignment="Stretch"
+                            Width="295"
+                            Margin="0, 0, 16, 0">
+
+                    <!-- Trip leg label -->
+                    <Label Content="Hasselvägen 9"
+                           FontFamily="Roboto"
+                           FontSize="20"
+                           Foreground="Black"
+                           Padding="0, 5, 5, 0"
+                           Margin="64, 0, 0, 0"/>
+
+                    <!-- Trip leg label -->
+                    <Label Content="562 31 Norrahammar"
+                           FontFamily="Roboto"
+                           FontSize="14"
+                           Foreground="Black"
+                           VerticalAlignment="Top"
+                           Padding="0, 2, 5, 10"
+                           Margin="64, 0, 0, 0"/>
+
+                    <!-- Divider -->
+                    <StackPanel Height="1"
+                                HorizontalAlignment="Stretch"
+                                Opacity="0.5"
+                                Margin="64, 0, 0, 0"
+                                Background="{StaticResource GrayBrush}"/>
+
+                </StackPanel>
+
+            </StackPanel>
+
+            <!-- Row -->
+            <StackPanel Orientation="Horizontal"
+                        Margin="0, 0, 0, 8">
+
+                <!-- Timespan label -->
+                <Label Content="14:50"
+                       FontFamily="Roboto"
+                       FontSize="16"
+                       Foreground="{StaticResource DarkGrayBrush}"
+                       VerticalAlignment="Top"
+                       Margin="32, 0, 0, 0"/>
+
+                <StackPanel HorizontalAlignment="Stretch"
+                            Width="295"
+                            Margin="0, 0, 16, 0">
+
+                    <!-- Trip leg label -->
+                    <Label Content="Hasselvägen 9"
+                           FontFamily="Roboto"
+                           FontSize="20"
+                           Foreground="Black"
+                           Padding="0, 5, 5, 0"
+                           Margin="64, 0, 0, 0"/>
+
+                    <!-- Trip leg label -->
+                    <Label Content="562 31 Norrahammar"
+                           FontFamily="Roboto"
+                           FontSize="14"
+                           Foreground="Black"
+                           VerticalAlignment="Top"
+                           Padding="0, 2, 5, 10"
+                           Margin="64, 0, 0, 0"/>
+
+                    <!-- Divider -->
+                    <StackPanel Height="1"
+                                HorizontalAlignment="Stretch"
+                                Opacity="0.5"
+                                Margin="64, 0, 0, 0"
+                                Background="{StaticResource GrayBrush}"/>
+
+                </StackPanel>
+
+            </StackPanel>
+
+            <!-- Row -->
+            <StackPanel Orientation="Horizontal"
+                        Margin="0, 0, 0, 8">
+
+                <!-- Timespan label -->
+                <Label Content="14:50"
+                       FontFamily="Roboto"
+                       FontSize="16"
+                       Foreground="{StaticResource DarkGrayBrush}"
+                       VerticalAlignment="Top"
+                       Margin="32, 0, 0, 0"/>
+
+                <StackPanel HorizontalAlignment="Stretch"
+                            Width="295"
+                            Margin="0, 0, 16, 0">
+
+                    <!-- Trip leg label -->
+                    <Label Content="Hasselvägen 9"
+                           FontFamily="Roboto"
+                           FontSize="20"
+                           Foreground="Black"
+                           Padding="0, 5, 5, 0"
+                           Margin="64, 0, 0, 0"/>
+
+                    <!-- Trip leg label -->
+                    <Label Content="562 31 Norrahammar"
+                           FontFamily="Roboto"
+                           FontSize="14"
+                           Foreground="Black"
+                           VerticalAlignment="Top"
+                           Padding="0, 2, 5, 10"
+                           Margin="64, 0, 0, 0"/>
+
+                    <!-- Divider -->
+                    <StackPanel Height="1"
+                                HorizontalAlignment="Stretch"
+                                Opacity="0.5"
+                                Margin="64, 0, 0, 0"
+                                Background="{StaticResource GrayBrush}"/>
+
+                </StackPanel>
+
+            </StackPanel>
+
+        </StackPanel>
 
     </StackPanel>
 
