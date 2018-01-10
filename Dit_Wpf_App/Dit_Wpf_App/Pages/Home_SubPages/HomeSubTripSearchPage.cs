@@ -48,13 +48,45 @@ namespace Dit_Wpf_App.Pages.Home_SubPages
             }
             // Wait for the button to finish animating.
             await Task.Delay(120);
-            mainWindow.MainPageHost.CurrentPage = ApplicationPageConverter.GetPage(ApplicationPage.TripSearchResults);
+            mainWindow.MainPageHost.CurrentPage = new TripSearchResultsPage(button_stop_from.Content as string, button_stop_to.Content as string);
             mainWindow.MainPageHost.CurrentPage.DataContext = homePage;
         }
 
         private void Swap_Click(object sender, RoutedEventArgs e)
         {
-            
+            var fromContent = button_stop_from.Content;
+            var toContent = button_stop_to.Content;
+            button_stop_from.Content = toContent;
+            button_stop_to.Content = fromContent;
         }
+
+        private void HistoricTrip_Click(object sender, RoutedEventArgs e)
+        {
+            // Make sure button is a button and contains a stackpanel.
+            if (!(sender is Button button)) return;
+            if (!(button.Content is StackPanel contentContainer)) return;
+
+            // Loop through children of stackpanel.
+            foreach (var child in contentContainer.Children)
+            {
+                // Make sure child is a StackPanel and has a name that begins with "location_container".
+                if (!(child is StackPanel locationContainer)) continue;
+                if (!locationContainer.Name.StartsWith("location_container")) continue;
+
+                // Make sure first child of nested stackpanel is a label.
+                if (locationContainer.Children[0] is Label fromLabel)
+                {
+                    button_stop_from.Content = fromLabel.Content;
+                }
+                // Make sure second child of nested stackpanel is a label.
+                if (locationContainer.Children[1] is Label toLabel)
+                {
+                    button_stop_to.Content = toLabel.Content;
+                }
+                // Search for the trip.
+                Fab_Search_Click(sender, e);
+            }
+        }
+
     }
 }

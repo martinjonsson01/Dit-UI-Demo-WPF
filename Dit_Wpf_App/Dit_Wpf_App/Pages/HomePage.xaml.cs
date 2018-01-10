@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Dit_Wpf_App.Animation;
 using Dit_Wpf_App.Converters;
 using Dit_Wpf_App.DataModels;
+using Dit_Wpf_App.Pages.Home_SubPages;
 
 namespace Dit_Wpf_App.Pages
 {
@@ -28,7 +29,7 @@ namespace Dit_Wpf_App.Pages
             SlideSeconds = 0.0001f;
             InitializeComponent();
             PageLoadAnimation = PageAnimation.AppearInstant;
-            HomePageHost.CurrentPage = ApplicationPageConverter.GetPage(ApplicationPage.HomeSubTripSearch);
+            HomePageHost.CurrentPage = new HomeSubTripSearchPage();
             HomePageHost.CurrentPage.DataContext = this;
             SlideSeconds = 0.4f;
         }
@@ -48,9 +49,42 @@ namespace Dit_Wpf_App.Pages
                 newPage.PageLoadAnimation = searchTabClicked ? PageAnimation.SlideInFromLeft : PageAnimation.SlideInFromRight;
                 newPage.PageUnloadAnimation = searchTabClicked ? PageAnimation.SlideOutToRight : PageAnimation.SlideOutToLeft;
             }
-            HomePageHost.CurrentPage =
-                ApplicationPageConverter.GetPage(searchTabClicked ? ApplicationPage.HomeSubTripSearch : ApplicationPage.HomeSubScheduledTrips);
+            BasePage page = null;
+            if (searchTabClicked)
+                page = new HomeSubTripSearchPage();
+            else
+                page = new HomeSubScheduledTripsPage();
+            HomePageHost.CurrentPage = page;
             HomePageHost.CurrentPage.DataContext = this;
+        }
+
+        public override void Back_Click(object sender, RoutedEventArgs e)
+        {
+            Tab_Click(new Control {Name = "ButtonTabSearch"}, e);
+        }
+
+        private void MenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is MainWindow window)
+            {
+                SystemCommands.ShowSystemMenu(window, Utils.GetMousePosition(window));
+            }
+        }
+
+        private void Topbar_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (DataContext is MainWindow window)
+            {
+                if (e.ChangedButton.Equals(MouseButton.Left))
+                {
+                    window.WindowState = WindowState.Normal;
+                    window.DragMove();
+                }
+                else
+                {
+                    SystemCommands.ShowSystemMenu(window, Utils.GetMousePosition(window));
+                }
+            }
         }
     }
 }

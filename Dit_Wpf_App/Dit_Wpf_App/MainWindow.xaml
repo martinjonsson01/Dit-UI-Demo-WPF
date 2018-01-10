@@ -7,7 +7,7 @@
         xmlns:controls="clr-namespace:Dit_Wpf_App.Controls"
         mc:Ignorable="d"
         Title="Dit" 
-        Height="731"
+        Height="791"
         MinHeight="600"
         MaxHeight="1462"
         Width="411"
@@ -15,12 +15,67 @@
         MaxWidth="822"
         WindowStartupLocation="CenterScreen"
         WindowState="Normal"
+        WindowStyle="None"
         UseLayoutRounding="True">
 
     <Grid>
         
-        <controls:PageHost x:Name="MainPageHost" />
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <controls:PageHost x:Name="MainPageHost" 
+                           Grid.Row="0"/>
+
+        <Grid Background="{StaticResource DarkGrayBrush}"
+                    Height="60"
+              Grid.Row="1">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Back Button -->
+            <Button Style="{StaticResource ImageButton}"
+                    Width="100"
+                    Height="100"
+                    Grid.Column="0"
+                    Click="Back_Click">
+                <Image Source="/Images/ic_back_arrow_white.png"
+                       Stretch="UniformToFill" 
+                       Width="35"
+                       Height="35"/>
+            </Button>
+
+            <!-- Home Button -->
+            <Button Style="{StaticResource ImageButton}"
+                    Width="100"
+                    Height="100"
+                    Grid.Column="1"
+                    Click="Home_Click">
+                <Image Source="/Images/ic_home_white_48dp_2x.png"
+                       Stretch="UniformToFill" 
+                       Width="45"
+                       Height="45"/>
+            </Button>
+
+            <!-- Home Button -->
+            <Button Style="{StaticResource ImageButton}"
+                    Width="100"
+                    Height="100"
+                    Grid.Column="2"
+                    Click="Close_Click">
+                <Image Source="/Images/ic_close_white_48dp_2x.png"
+                       Stretch="UniformToFill" 
+                       Width="45"
+                       Height="45"/>
+            </Button>
+
+        </Grid>
+
     </Grid>
     
 </Window>

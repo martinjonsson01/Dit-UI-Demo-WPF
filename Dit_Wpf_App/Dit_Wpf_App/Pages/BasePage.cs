@@ -77,6 +77,11 @@ namespace Dit_Wpf_App.Pages
                 await AnimateInAsync();
         }
 
+        public virtual async void Back_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
         /// <summary>
         /// Animates the page in
         /// </summary>

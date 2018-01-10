@@ -18,7 +18,8 @@
         <!-- Appbar Grid -->
         <Grid Height="207"
               VerticalAlignment="Top"
-              Background="{StaticResource MainBrush}">
+              Background="{StaticResource MainBrush}"
+              MouseDown="Topbar_MouseDown">
 
             <!-- Logo -->
             <Image Source="../Images/Logo.png"
@@ -97,14 +98,16 @@
                 <!-- Container for inputs -->
                 <StackPanel Orientation="Vertical">
 
-                    <Label Style="{StaticResource LocationInputLabel}"
+                    <Label x:Name="label_stop_from"
+                           Style="{StaticResource LocationInputLabel}"
                            RenderTransformOrigin="0.5, 0.5"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            Margin="0, 10, 0, 0"
                            Content="Min Position"/>
 
-                    <Label Style="{StaticResource LocationInputLabel}"
+                    <Label x:Name="label_stop_to"
+                           Style="{StaticResource LocationInputLabel}"
                            RenderTransformOrigin="0.5, 0.5"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
@@ -116,7 +119,8 @@
                 <!-- Swap Button -->
                 <Button Style="{StaticResource ImageButton}"
                         Width="49" 
-                        Height="49">
+                        Height="49"
+                        Click="Swap_Click">
                     <Image Source="../Images/ic_swap_vert_white_48dp_2x.png"
                            Stretch="UniformToFill" />
                 </Button>
@@ -194,7 +198,8 @@
                     <!-- Trip Result Container -->
                     <StackPanel Orientation="Horizontal"
                             HorizontalAlignment="Stretch"
-                            Background="{StaticResource BackgroundLightBrush}">
+                            Background="{StaticResource BackgroundLightBrush}"
+                                Width="370">
 
                         <!-- Bus Icon -->
                         <Image Source="../Images/ic_directions_bus_black_48dp_2x.png"
@@ -208,7 +213,8 @@
 
                         <!-- Center content -->
                         <StackPanel Orientation="Vertical"
-                                HorizontalAlignment="Center">
+                                HorizontalAlignment="Center"
+                                    Width="250">
 
                             <!-- Timespan label -->
                             <Label Content="14:50-15:15"
@@ -266,11 +272,12 @@
                             </StackPanel>
 
                             <!-- Departure text -->
-                            <Label Content="15:56 Från Norrahammar Slätten"
-                               FontFamily="Roboto"
-                               FontSize="15"
-                               Foreground="{StaticResource GrayBrush}"
-                               Margin="16, 0, 0, 0"/>
+                            <Label x:Name="label_result_details_from"
+                                   Content="15:56 Från Norrahammar Slätten"
+                                   FontFamily="Roboto"
+                                   FontSize="15"
+                                   Foreground="{StaticResource GrayBrush}"
+                                   Margin="16, 0, 0, 0"/>
 
                             <StackPanel Orientation="Horizontal">
 

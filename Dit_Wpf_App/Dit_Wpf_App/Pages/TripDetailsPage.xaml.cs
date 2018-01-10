@@ -27,7 +27,7 @@ namespace Dit_Wpf_App.Pages
     {
         private bool _skipResultsPage;
 
-        public TripDetailsPage()
+        public TripDetailsPage(string from, string to)
         {
             PageLoadAnimation = PageAnimation.SlideAndFadeInFromBottom;
             PageUnloadAnimation = PageAnimation.SlideAndFadeOutToBottom;
@@ -35,15 +35,24 @@ namespace Dit_Wpf_App.Pages
             SlideSeconds = 0.3f;
 
             InitializeComponent();
+
+            label_trip_details_from.Content = from;
+            label_trip_details_to.Content = to;
+            label_trip_details_description_from.Content = $"14:56 Från {from}";
         }
 
-        private async void Back_Click(object sender, RoutedEventArgs e)
+        public async override void Back_Click(object sender, RoutedEventArgs e)
         {
             if (DataContext is HomePage homePage)
             {
                 if (homePage.DataContext is MainWindow mainWindow)
                 {
-                    mainWindow.MainPageHost.CurrentPage = ApplicationPageConverter.GetPage(_skipResultsPage ? ApplicationPage.Home : ApplicationPage.TripSearchResults);
+                    BasePage page = new TripSearchResultsPage(label_trip_details_from.Content as string, label_trip_details_to.Content as string);
+                    if (_skipResultsPage)
+                        page = new HomePage();
+
+                    mainWindow.MainPageHost.CurrentPage = page;
+
                     mainWindow.MainPageHost.CurrentPage.DataContext = _skipResultsPage ? (object) mainWindow : homePage;
 
                     mainWindow.MainPageHost.CurrentPage.PageLoadAnimation = PageAnimation.AppearInstant;
@@ -83,5 +92,23 @@ namespace Dit_Wpf_App.Pages
             }
         }
 
+        private void Topbar_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (DataContext is HomePage homePage)
+            {
+                if (homePage.DataContext is MainWindow window)
+                {
+                    if (e.ChangedButton.Equals(MouseButton.Left))
+                    {
+                        window.WindowState = WindowState.Normal;
+                        window.DragMove();
+                    }
+                    else
+                    {
+                        SystemCommands.ShowSystemMenu(window, Utils.GetMousePosition(window));
+                    }
+                }
+            }
+        }
     }
 }

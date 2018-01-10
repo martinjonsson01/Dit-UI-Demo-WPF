@@ -13,7 +13,7 @@ namespace Dit_Wpf_App.Converters
 {
     public static class ApplicationPageConverter
     {
-        public static BasePage GetPage(ApplicationPage appPage)
+        /*public static BasePage GetPage(ApplicationPage appPage)
         {
             // Find the appropriate page.
             switch (appPage)
@@ -28,15 +28,15 @@ namespace Dit_Wpf_App.Converters
                     return new HomeSubScheduledTripsPage();
 
                 case ApplicationPage.TripSearchResults:
-                    return new TripSearchResultsPage();
+                    return new TripSearchResultsPage("null", "null");
 
                 case ApplicationPage.TripDetails:
-                    return new TripDetailsPage();
+                    return new TripDetailsPage("null", "null");
 
                 default:
                     Debugger.Break();
                     return null;
             }
-        }
+        }*/
     }
 }

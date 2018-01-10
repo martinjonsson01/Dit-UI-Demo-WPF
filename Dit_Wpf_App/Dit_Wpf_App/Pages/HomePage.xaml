@@ -18,7 +18,8 @@
         <!-- Appbar Grid -->
         <Grid Height="283"
               VerticalAlignment="Top"
-              Background="#2196f3">
+              Background="#2196f3"
+              MouseDown="Topbar_MouseDown">
 
             <!-- Logo -->
             <Image Source="../Images/Logo.png"
@@ -47,7 +48,8 @@
             <Button Style="{StaticResource ImageButton}"
                     VerticalAlignment="Top" 
                     HorizontalAlignment="Left"
-                    Margin="11">
+                    Margin="11"
+                    Click="MenuButton_Click">
                 <Image Source="../Images/ic_menu_white_48dp.png"
                        Stretch="UniformToFill" />
             </Button>

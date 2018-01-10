@@ -18,7 +18,8 @@
         <!-- Appbar Grid -->
         <Grid Height="207"
               VerticalAlignment="Top"
-              Background="{StaticResource MainBrush}">
+              Background="{StaticResource MainBrush}"
+              MouseDown="Topbar_MouseDown">
 
             <!-- Logo -->
             <Image Source="../Images/Logo.png"
@@ -97,14 +98,16 @@
                 <!-- Container for inputs -->
                 <StackPanel Orientation="Vertical">
 
-                    <Label Style="{StaticResource LocationInputLabel}"
+                    <Label x:Name="label_trip_details_from"
+                           Style="{StaticResource LocationInputLabel}"
                            RenderTransformOrigin="0.5, 0.5"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            Margin="0, 10, 0, 0"
                            Content="Min Position"/>
 
-                    <Label Style="{StaticResource LocationInputLabel}"
+                    <Label x:Name="label_trip_details_to"
+                           Style="{StaticResource LocationInputLabel}"
                            RenderTransformOrigin="0.5, 0.5"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
@@ -120,12 +123,14 @@
         <!-- Trip Result Container -->
         <StackPanel Orientation="Horizontal"
                     HorizontalAlignment="Stretch"
-                    Background="{StaticResource BackgroundLightBrush}">
+                    Background="{StaticResource BackgroundLightBrush}"
+                    Width="411">
 
             <!-- Center content -->
             <StackPanel Orientation="Vertical"
                         HorizontalAlignment="Center"
-                        Margin="15, 0, 60, 0">
+                        Margin="15, 0, 60, 0"
+                        Width="250">
 
                 <!-- Timespan label -->
                 <Label Content="14:50-15:15"
@@ -183,7 +188,8 @@
                 </StackPanel>
 
                 <!-- Departure text -->
-                <Label Content="14:56 Från Norrahammar Slätten"
+                <Label x:Name="label_trip_details_description_from"
+                       Content="14:56 Från Norrahammar Slätten"
                        FontFamily="Roboto"
                        FontSize="15"
                        Foreground="{StaticResource GrayBrush}"
@@ -250,10 +256,12 @@
                     Background="{StaticResource GrayBrush}"/>
         
         <!-- Trip Details -->
-        <StackPanel Margin="0, 24, 0, 0">
+        <StackPanel Margin="0, 24, 0, 0"
+                    HorizontalAlignment="Stretch">
 
             <!-- Row -->
             <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
                         Margin="0, 8, 0, 8">
 
                 <!-- Timespan label -->
@@ -298,6 +306,7 @@
 
             <!-- Row -->
             <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
                         Margin="0, 0, 0, 8">
 
                 <!-- Bus Icon -->
@@ -320,7 +329,7 @@
                            FontSize="20"
                            Foreground="Black"
                            Padding="0, 5, 5, 0"
-                           Margin="64, 0, 0, 0"/>
+                           Margin="67, 0, 0, 0"/>
 
                     <!-- Trip leg label -->
                     <Label Content="562 31 Norrahammar"
@@ -329,13 +338,13 @@
                            Foreground="Black"
                            VerticalAlignment="Top"
                            Padding="0, 2, 5, 10"
-                           Margin="64, 0, 0, 0"/>
+                           Margin="67, 0, 0, 0"/>
 
                     <!-- Divider -->
                     <StackPanel Height="1"
                                 HorizontalAlignment="Stretch"
                                 Opacity="0.5"
-                                Margin="64, 0, 0, 0"
+                                Margin="67, 0, 0, 0"
                                 Background="{StaticResource GrayBrush}"/>
 
                 </StackPanel>
@@ -344,6 +353,7 @@
 
             <!-- Row -->
             <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
                         Margin="0, 0, 0, 8">
 
                 <!-- Timespan label -->
@@ -388,6 +398,7 @@
 
             <!-- Row -->
             <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
                         Margin="0, 0, 0, 8">
 
                 <!-- Timespan label -->
@@ -432,6 +443,7 @@
 
             <!-- Row -->
             <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
                         Margin="0, 0, 0, 8">
 
                 <!-- Timespan label -->
