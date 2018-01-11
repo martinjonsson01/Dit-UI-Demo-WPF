@@ -17,6 +17,9 @@
     <Color x:Key="MainLight">#42a5f5</Color>
     <SolidColorBrush x:Key="MainLightBrush" Color="{StaticResource MainLight}" />
 
+    <Color x:Key="LightGray">#545353</Color>
+    <SolidColorBrush x:Key="LightGrayBrush" Color="{StaticResource LightGray}" />
+
     <Color x:Key="Gray">#585858</Color>
     <SolidColorBrush x:Key="GrayBrush" Color="{StaticResource Gray}" />
 

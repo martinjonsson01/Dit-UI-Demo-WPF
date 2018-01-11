@@ -110,5 +110,14 @@ namespace Dit_Wpf_App.Pages
                 }
             }
         }
+
+        private void Expand_Click(object sender, RoutedEventArgs e)
+        {
+            var expanded = ContainerExpandableStops.Visibility == Visibility.Visible;
+            ContainerExpandableStops.Visibility = expanded ? Visibility.Collapsed : Visibility.Visible;
+            var file = $"pack://application:,,,/Images/";
+            file += expanded ? "ic_expand_more_black_48dp_2x.png" : "ic_expand_less_black_48dp_2x.png";
+            ImageIconExpand.Source = new BitmapImage(new Uri(file));
+        }
     }
 }

@@ -232,5 +232,11 @@
   <ItemGroup>
     <Resource Include="Images\ic_close_white_48dp_2x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ic_expand_less_black_48dp_2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ic_expand_more_black_48dp_2x.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

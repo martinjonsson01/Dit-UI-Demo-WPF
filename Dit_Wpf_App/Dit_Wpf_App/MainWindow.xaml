@@ -7,7 +7,7 @@
         xmlns:controls="clr-namespace:Dit_Wpf_App.Controls"
         mc:Ignorable="d"
         Title="Dit" 
-        Height="791"
+        Height="711"
         MinHeight="600"
         MaxHeight="1462"
         Width="411"
